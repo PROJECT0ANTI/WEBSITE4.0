@@ -1,0 +1,53 @@
+ul li {
+  list-style: none;
+}
+
+@font-face {
+  font-family: "Ethnocentric";
+  src: url("../../Fonts/ethnocentric_rg.otf") format("opentype");
+}
+
+.logo {
+  font-family: "Ethnocentric";
+  font-size: 1.6rem; /* Reduced logo size by 20% */
+}
+
+/* Navbar link styling with 20% size reduction */
+.list_style {
+  font-size: 1rem; /* 20% smaller than default text-xl */
+  font-weight: 550;
+}
+
+.list_style li:hover {
+  background-color: rgb(42, 45, 45);
+  border-radius: 2.85rem;
+  transition: 0.43s ease;
+}
+
+/* Nav link base styling */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Active state - very subtle, almost invisible (grey tint instead of red) */
+.nav-link-active {
+  color: rgba(108, 55, 55, 0.9); /* Subtle grey - visible but very subtle */
+}
+
+/* Subtle hover - just a very slight color shift from white to light grey */
+.nav-link:hover {
+  color: rgba(180, 180, 180, 0.85); /* Even more subtle grey on hover */
+}
+
+/* Mobile menu button styling */
+@media (max-width: 768px) {
+  .nav-link-active {
+    background-color: rgba(51, 51, 51, 0.3); /* very subtle background on mobile */
+    border-radius: 0.375rem;
+  }
+
+  .list_style {
+    font-size: 1rem; /* 20% smaller for mobile too */
+  }
+}
