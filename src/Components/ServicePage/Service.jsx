@@ -1,86 +1,189 @@
-import React from "react";
+import React, { useState } from "react";
 import "./services.css";
-import Testimonials from "./Testimonials";
-import Clients from "./Clients";
-import Comparison from "./Comparison";
 
-const Service = () => {
-  const services = [
-    {
-      title: "AI Services",
-      description:
-        "AI chatbots, voice assistants, and AI-powered automation to streamline your operations and improve efficiency in day-to-day business workflows.",
-      icon: "🤖",
-      route: "./AIservices",
-    },
-    {
-      title: "Web Services",
-      description:
-        "End-to-end web development for robust, scalable, and user-friendly websites and web applications tailored to your specific business needs.",
-      icon: "🌐",
-      route: "./InteractiveDashboards",
-    },
-    {
-      title: "App Development",
-      description:
-        "Design and development of modern, high-performance mobile apps with seamless user experiences across both iOS and Android platforms.",
-      icon: "📱",
-      route: "./AppDevelopment",
-    },
-    {
-      title: "Cloud Services",
-      description:
-        "Cloud-native solutions to improve reliability, enhance performance, and enable secure, scalable growth for your organization worldwide.",
-      icon: "☁️",
-      route: "./CloudServices",
-    },
-  ];
+const categories = {
+  "Web Design": {
+    title: "Web Design",
+    description:
+      "We design high-impact, conversion-focused digital experiences that balance aesthetics with usability.",
+    features: [
+      "Responsive Design",
+      "User Experience Design",
+      "Brand Identity",
+      "Prototyping",
+    ],
+  },
+  "Web Development": {
+    title: "Web Development",
+    description:
+      "Robust, scalable, and performance-driven web applications built with modern technology.",
+    features: [
+      "Frontend & Backend",
+      "API Integration",
+      "Performance Optimization",
+      "Secure Architecture",
+    ],
+  },
+  "Mobile Development": {
+    title: "Mobile Development",
+    description:
+      "Cross-platform and native mobile apps engineered for speed, scale, and reliability.",
+    features: [
+      "iOS & Android",
+      "Cross-Platform Apps",
+      "UI/UX for Mobile",
+      "App Store Deployment",
+    ],
+  },
+  "AI & Cloud Solutions": {
+    title: "AI & Cloud Solutions",
+    description:
+      "Intelligent automation and cloud-native systems built to scale with your business.",
+    features: [
+      "AI Automation & Agents",
+      "Cloud Architecture",
+      "ML Pipelines",
+      "Scalable Infrastructure",
+    ],
+  },
+};
+
+export default function Service() {
+  const [activeCategory, setActiveCategory] = useState("Web Design");
 
   return (
-    <>
-      {/* SERVICES SECTION */}
-      <section className="services-section" id="services">
-        <h2>Our Services</h2>
+    <main className="services-root">
+      {/* HERO */}
+      <section className="services-hero">
+        <h1 className="hero-title animate-fade-in-up">
+          Our Comprehensive Digital Solutions
+        </h1>
+        <p className="hero-sub animate-fade-in">
+          We build intelligent, scalable products that drive measurable business
+          outcomes.
+        </p>
+      </section>
 
-        <div className="services-grid-alternating">
-          {services.map((service, index) => (
-            <ServiceCardAlt key={index} service={service} index={index} />
+      {/* CATEGORIES */}
+      <section className="categories-section">
+        <h2 className="section-title">Categories of Services</h2>
+        <p className="section-sub">
+          Purpose-built capabilities designed for modern digital businesses.
+        </p>
+
+        <div className="categories-layout">
+          {/* LEFT NAV */}
+          <div className="categories-list">
+            {Object.keys(categories).map((key) => (
+              <button
+                key={key}
+                className={`category-btn ${
+                  activeCategory === key ? "active" : ""
+                }`}
+                onClick={() => setActiveCategory(key)}
+              >
+                {key}
+              </button>
+            ))}
+          </div>
+
+          {/* RIGHT CONTENT */}
+          <div className="category-content glow-card">
+            <h3>{categories[activeCategory].title}</h3>
+            <p>{categories[activeCategory].description}</p>
+
+            <div className="feature-grid">
+              {categories[activeCategory].features.map((f, i) => (
+                <div key={i} className="feature-item">
+                  <span className="check">✓</span>
+                  <span>{f}</span>
+                </div>
+              ))}
+            </div>
+
+            <button className="primary-btn">Get Started</button>
+          </div>
+        </div>
+      </section>
+
+      {/* DESIGN PROCESS */}
+      <section className="process-section">
+        <h2 className="section-title">Design Process</h2>
+        <p className="section-sub">
+          A proven, execution-first approach to delivering results.
+        </p>
+
+        <div className="process-grid">
+          {[
+            ["01", "Discovery & Research"],
+            ["02", "Strategy & Planning"],
+            ["03", "Design & Prototyping"],
+            ["04", "Development & Testing"],
+            ["05", "Launch & Optimization"],
+            ["06", "Support & Growth"],
+          ].map(([num, title]) => (
+            <div key={num} className="process-card glow-card">
+              <span className="process-num">{num}</span>
+              <h4>{title}</h4>
+              <p>
+                Each phase is executed with precision and measurable outcomes.
+              </p>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* TESTIMONIALS SECTION */}
-      <Testimonials />
+      {/* SUCCESS STORIES */}
+      <section className="stories-section">
+        <h2 className="section-title">Success Stories</h2>
+        <p className="section-sub">
+          Real results from real client partnerships.
+        </p>
 
-      {/* COMPARISON SECTION */}
-      <Comparison />
+        <div className="stories-grid">
+          <div className="story-card glow-card">
+            <h4>300% Increase in Sales</h4>
+            <p>
+              Platform redesign and analytics strategy unlocked massive growth.
+            </p>
+            <div className="metrics">
+              <span>300% Sales Growth</span>
+              <span>250% User Growth</span>
+            </div>
+          </div>
 
-      {/* CLIENTS SECTION */}
-      <Clients />
-    </>
-  );
-};
-
-const ServiceCardAlt = ({ service, index }) => {
-  return (
-    <div className={`service-card-alt ${index % 2 === 1 ? "reverse" : ""}`}>
-      <div className="service-icon-alt">{service.icon}</div>
-
-      <div className="service-content-alt">
-        <h3 className="service-title-alt">{service.title}</h3>
-        <p className="service-description-alt">{service.description}</p>
-
-        <div className="service-footer-alt">
-          <a href={service.route} className="service-btn-alt service-btn-primary">
-            Read More
-          </a>
-          <a href="./checkout" className="service-btn-alt service-btn-secondary">
-            Buy Now
-          </a>
+          <div className="story-card glow-card">
+            <h4>Launched in 6 Months</h4>
+            <p>
+              End-to-end product delivery completed ahead of schedule.
+            </p>
+            <div className="metrics">
+              <span>40% Time Saved</span>
+              <span>98% Satisfaction</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  );
-};
+      </section>
 
-export default Service;
+      {/* PORTFOLIO */}
+      <section className="portfolio-section">
+        <h2 className="section-title">Web Design Portfolio</h2>
+        <p className="section-sub">
+          Selected projects showcasing quality and craftsmanship.
+        </p>
+
+        <div className="portfolio-grid">
+          {["E-Commerce Platform", "SaaS Dashboard", "Mobile Banking App"].map(
+            (p) => (
+              <div key={p} className="portfolio-card glow-card">
+                <h4>{p}</h4>
+                <p>High-performance product built for scale.</p>
+                <span className="link-text">View Project →</span>
+              </div>
+            )
+          )}
+        </div>
+      </section>
+    </main>
+  );
+}
