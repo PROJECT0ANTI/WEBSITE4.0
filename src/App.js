@@ -1,55 +1,95 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ThreeScene from "./Components/Background/ThreeScene";
-import Container from "./Components/ChatbotComponents/Container";
+
+// Layout
 import Navbar from "./Components/NavbarSection/Navbar";
+import Footer from "./Components/FooterSection/Footer";
+
+// Pages / Background
+import ThreeScene from "./Components/Background/ThreeScene";
 import Career from "./Components/CareersPage/Career";
 import About from "./Components/AboutPage/About";
-import Footer from "./Components/FooterSection/Footer";
 import Contact from "./Components/ContactSection/Contact";
 import Projects from "./Components/ImageSection/Image";
 import JobListing from "./Components/Joblist/JobListing";
+import Team from "./Components/Team/Team";
 import Service from "./Components/ServicePage/Service";
+
+// Specific services
 import AIservices from "./Components/SpecificService/Ai";
 import AppDevelopment from "./Components/SpecificService/appdev";
 import InteractiveDashboards from "./Components/SpecificService/webd";
 import CloudServices from "./Components/SpecificService/cloud";
+
+// Contact sub-pages
 import AiContact from "./Components/SpecificContactPage/aiservicepage";
 import Appcontact from "./Components/SpecificContactPage/appcontact";
 import Cloud from "./Components/SpecificContactPage/cloudcontact";
 import Webser from "./Components/SpecificContactPage/webcontact";
-import Team from "./Components/Team/Team";
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<ThreeScene />} />
-        <Route path="/home" element={<ThreeScene />} />
-        <Route path="/Career" element={<JobListing />} />
-        <Route path="/services" element={<Service />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Projects" element={<Projects />} />
-        <Route path="/Job" element={<Career />} />
-        <Route path="/AIservices" element={<AIservices />} />
-        <Route path="/AppDevelopment" element={<AppDevelopment />} />
-        <Route
-          path="/InteractiveDashboards"
-          element={<InteractiveDashboards />}
-        />
-        <Route path="/CloudServices" element={<CloudServices />} />
-        <Route path="/AiContact" element={<AiContact />} />
-        <Route path="/Appcontact" element={<Appcontact />} />
-        <Route path="/Cloud" element={<Cloud />} />
 
-        <Route path="/Webser" element={<Webser />} />
+      {/* HEADER ALWAYS */}
+      <Navbar />
+
+      <Routes>
+
+        {/* HOME — special layout */}
+        <Route
+          path="/"
+          element={
+            <>
+              <ThreeScene />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <>
+              <ThreeScene />
+              <Footer />
+            </>
+          }
+        />
+
+        {/* ALL OTHER PAGES — normal flow */}
+        <Route
+          path="*"
+          element={
+            <main className="app-content">
+              <Routes>
+                <Route path="/services" element={<Service />} />
+                <Route path="/career" element={<JobListing />} />
+                <Route path="/job" element={<Career />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/projects" element={<Projects />} />
+
+                {/* specific services */}
+                <Route path="/AIservices" element={<AIservices />} />
+                <Route path="/AppDevelopment" element={<AppDevelopment />} />
+                <Route path="/InteractiveDashboards" element={<InteractiveDashboards />} />
+                <Route path="/CloudServices" element={<CloudServices />} />
+
+                {/* contact sub pages */}
+                <Route path="/AiContact" element={<AiContact />} />
+                <Route path="/Appcontact" element={<Appcontact />} />
+                <Route path="/Cloud" element={<Cloud />} />
+                <Route path="/Webser" element={<Webser />} />
+              </Routes>
+
+              <Footer />
+            </main>
+          }
+        />
+
       </Routes>
-      {/* <Container /> */}
-      <Footer />
     </Router>
   );
 }
