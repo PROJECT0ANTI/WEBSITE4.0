@@ -1,11 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import "./Hero.css";
-// import Container from "../ChatbotComponents/Container"
-
 
 const HeroSection = () => {
   const heroContentRef = useRef(null);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,19 +20,18 @@ const HeroSection = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div className="hero-container">
-      <section className="hero">
+      <section className={`hero ${expanded ? "expanded" : ""}`}>
         <div className="overlay"></div>
+
         <div className="hero-content" ref={heroContentRef}>
           <div className="text-wrapper">
             <h1>We're Anti AI,</h1>
+
             <h1 className="typewriter-wrapper">
               <Typewriter
                 words={[
@@ -42,7 +40,7 @@ const HeroSection = () => {
                   "Making AI Safe.",
                   "Protecting Humanity.",
                 ]}
-                loop={true}
+                loop
                 cursor
                 cursorStyle="|"
                 typeSpeed={70}
@@ -50,17 +48,29 @@ const HeroSection = () => {
                 delaySpeed={2000}
               />
             </h1>
+
             <p className="hero-p">
-              We're An Innovative Software Company. Protecting Humanity from the{" "}
+              We're An Innovative Software Company. Protecting Humanity from the
               uncontrolled rise of Artificial Intelligence, Safeguarding people
               across the globe through our Innovative Software solutions.
             </p>
-            <button className="apple-button">
-              <a href="/About" className="button-link">See More</a>
+
+            {expanded && (
+              <p className="hero-p expanded-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+            )}
+
+            <button
+              className="apple-button"
+              onClick={() => setExpanded((prev) => !prev)}
+            >
+              {expanded ? "See Less" : "See More"}
             </button>
           </div>
-          {/* <Container /> */}
-
         </div>
       </section>
     </div>

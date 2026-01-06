@@ -16,9 +16,15 @@
 
 .hero {
   position: relative;
-  overflow: hidden;
-  height: 60vh;
+  overflow: visible;
+  min-height: 60vh;
+  padding-bottom: 40px;
 }
+
+.hero.expanded {
+  min-height: auto;
+}
+
 
 .hero-content {
   position: relative;
