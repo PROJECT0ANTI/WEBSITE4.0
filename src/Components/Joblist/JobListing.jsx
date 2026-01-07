@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./JobListing.css";
+import { API_BASE } from "../../config/api";
 
 export default function JobListing() {
   const [jobs, setJobs] = useState([]);
@@ -10,8 +11,7 @@ export default function JobListing() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        // ✅ PROXY-BASED CALL (no hardcoded domain)
-        const res = await fetch("/api/fetchAllPosition");
+        const res = await fetch(`${API_BASE}/api/fetchAllPosition`);
 
         if (!res.ok) {
           throw new Error("Failed to fetch jobs");

@@ -216,6 +216,7 @@
 
 import React, { useEffect, useState } from "react";
 import "./Career.css";
+import { API_BASE } from "../../config/api";
 
 export default function Career() {
   /* ---------------- JOB POSITIONS ---------------- */
@@ -239,12 +240,12 @@ export default function Career() {
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState("");
 
-  /* ---------------- FETCH POSITIONS (PROXY) ---------------- */
+  /* ---------------- FETCH POSITIONS ---------------- */
 
   useEffect(() => {
     const fetchPositions = async () => {
       try {
-        const res = await fetch("/api/fetchAllPosition");
+        const res = await fetch(`${API_BASE}/api/fetchAllPosition`);
         if (!res.ok) throw new Error("Failed to fetch positions");
 
         const data = await res.json();
@@ -286,7 +287,7 @@ export default function Career() {
     });
 
     try {
-      const res = await fetch("/api/applyJobProfile", {
+      const res = await fetch(`${API_BASE}/api/applyJobProfile`, {
         method: "POST",
         body,
       });
@@ -390,7 +391,7 @@ export default function Career() {
                 onChange={handleChange}
               />
 
-              {/* ROLE DROPDOWN (VISUAL FIX ONLY) */}
+              {/* ROLE DROPDOWN */}
               <select
                 name="role"
                 required
