@@ -1,5 +1,5 @@
 const API_BASE =
   process.env.REACT_APP_API_BASE_URL ||
-  "http://localhost:4000"; // fallback for local dev
+  "http://localhost:4000"; 
 
 export default API_BASE;
