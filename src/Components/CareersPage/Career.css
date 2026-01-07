@@ -12,14 +12,12 @@
 .career-hero h1 {
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 18px;
 }
 
 .career-hero p {
   color: #cbd5f5;
   max-width: 640px;
-  margin: 0 auto;
-  line-height: 1.7;
+  margin: 18px auto 0;
 }
 
 /* CONTENT */
@@ -81,19 +79,36 @@
 }
 
 .career-form input {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #ffffff;
   border-radius: 10px;
   padding: 12px 14px;
-  color: #ffffff;
+  border: none;
+  font-size: 1rem;
 }
 
-.career-form input:focus {
+/* ✅ DROPDOWN FIX */
+.career-select {
+  background: #ffffff;
+  color: #020308;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.career-select:focus {
   outline: none;
-  border-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.5);
 }
 
-/* FILE */
+.career-select option {
+  background: #ffffff;
+  color: #020308;
+  padding: 10px;
+}
+
+/* FILE UPLOAD */
 .file-upload {
   border: 1px dashed rgba(34, 197, 94, 0.4);
   padding: 14px;
@@ -110,24 +125,38 @@
 /* BUTTON */
 .career-form button {
   margin-top: 10px;
-  background: transparent;
-  border: 1px solid #22c55e;
-  color: #22c55e;
+  background: #22c55e;
+  color: #020308;
   padding: 12px;
   border-radius: 10px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  border: none;
+  transition: opacity 0.2s ease;
 }
 
-.career-form button:hover {
-  background: #22c55e;
-  color: #020308;
+.career-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
+/* ✅ MESSAGE / TOAST STYLE */
 .form-message {
-  margin-top: 12px;
-  font-size: 0.9rem;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+.form-message.success {
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid #22c55e;
   color: #a7f3d0;
+}
+
+.form-message.error {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid #ef4444;
+  color: #fecaca;
 }
 
 /* RESPONSIVE */

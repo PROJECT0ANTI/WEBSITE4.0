@@ -1,167 +1,94 @@
-
-.job-listing-container {
-  padding: 40px;
-  background: #f5f5f5;
-}
-.spin-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.career-section {
+  padding: 70px 6vw;
+  background: #020308;
+  color: #fff;
 }
 
-/* Card Styles */
-.ant-card {
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 12px;
-  border-top: 4px solid #89868b;
-  position: relative;
+.career-title {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  font-weight: 700;
 }
-.ant-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
-.ant-card-head {
-  background: #1890ff;
-  color: #fff;
-  text-align: center;
-  padding: 10px 20px;
-}
-.ant-card-head-title {
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-}
-.ant-card-body {
+
+.career-card {
+  background: linear-gradient(180deg, #ffffff, #f3f3f3);
+  color: #000;
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
-  padding: 15px;
-}
-.ant-card-body p {
-  margin: 8px 0;
-  font-size: 12px;
-}
-.ant-card-body button {
-  margin-top: 10px;
-  align-self: center;
-  width: 100%;
+  transition: all 0.3s ease;
 }
 
-/* Job Info */
-.job-title {
-  font-size: 16px;
+.career-card:hover {
+  transform: translateY(-6px);
+}
+
+.career-role {
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 8px;
-}
-.job-location,
-.job-area,
-.job-date {
-  font-size: 12px;
-  margin-bottom: 4px;
-  color: #555;
-}
-
-/* Save Button */
-.save-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.save-button span {
-  margin-left: 5px;
-  color: #7e7c7f;
-  font-weight: bold;
-}
-.save-button:hover span {
+  margin-bottom: 16px;
   text-decoration: underline;
 }
 
-/* Apply Button */
-.apply-button {
+.career-card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.career-apply-btn {
+  margin-top: 18px;
+  padding: 14px;
   width: 100%;
-  background-color: #000000;
+  background: #000;
   color: #fff;
   border: none;
-  padding: 10px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 14px;
-}
-.apply-button:hover {
-  background-color: #6a686c;
+  font-size: 1rem;
 }
 
-/* Responsive Styles */
-@media (max-width: 1200px) {
-  .job-listing-container {
-    padding: 20px;
-  }
+.career-apply-btn:hover {
+  background: #222;
 }
 
-@media (max-width: 992px) {
-  .job-listing-container {
-    padding: 15px;
-  }
-  .ant-card {
-    font-size: 10px;
-  }
-  .job-title {
-    font-size: 14px;
-  }
-  .apply-button {
-    font-size: 12px;
-  }
+/* animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
 }
 
-@media (max-width: 768px) {
-  .job-listing-container {
-    padding: 10px;
-  }
-  .ant-card {
-    font-size: 10px;
-    width: 100%;
-  }
-  .job-title {
-    font-size: 14px;
-  }
-  .apply-button {
-    font-size: 12px;
-  }
-  .ant-row {
-    display: flex;
-    flex-direction: column;
-  }
-  .ant-col {
-    margin-bottom: 16px;
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* states */
+.career-loading,
+.career-error {
+  padding: 80px 6vw;
+  text-align: center;
+  color: #cbd5f5;
+}
+
+/* responsive */
+@media (max-width: 1100px) {
+  .career-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 576px) {
-  .job-listing-container {
-    padding: 5px;
-  }
-  .ant-card {
-    font-size: 9px;
-  }
-  .job-title {
-    font-size: 12px;
-  }
-  .apply-button {
-    font-size: 10px;
-  }
-  .ant-row {
-    display: flex;
-    flex-direction: column;
-  }
-  .ant-col {
-    margin-bottom: 10px;
+@media (max-width: 700px) {
+  .career-grid {
+    grid-template-columns: 1fr;
   }
 }
