@@ -216,16 +216,12 @@
 
 import React, { useEffect, useState } from "react";
 import "./Career.css";
-import { API_BASE } from "../../config/api";
+import API_BASE from "../../config/api"; // ✅ FIXED (no braces)
 
 export default function Career() {
-  /* ---------------- JOB POSITIONS ---------------- */
-
   const [positions, setPositions] = useState([]);
   const [loadingPositions, setLoadingPositions] = useState(true);
   const [positionError, setPositionError] = useState(false);
-
-  /* ---------------- FORM STATE ---------------- */
 
   const [formData, setFormData] = useState({
     name: "",
@@ -240,8 +236,6 @@ export default function Career() {
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState("");
 
-  /* ---------------- FETCH POSITIONS ---------------- */
-
   useEffect(() => {
     const fetchPositions = async () => {
       try {
@@ -250,18 +244,16 @@ export default function Career() {
 
         const data = await res.json();
         setPositions(Array.isArray(data) ? data : []);
-        setLoadingPositions(false);
       } catch (err) {
         console.error("Position fetch error:", err);
         setPositionError(true);
+      } finally {
         setLoadingPositions(false);
       }
     };
 
     fetchPositions();
   }, []);
-
-  /* ---------------- HANDLERS ---------------- */
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -271,7 +263,6 @@ export default function Career() {
   const handleFile = (e) => {
     const file = e.target.files[0];
     if (!file) return;
-
     setFormData((p) => ({ ...p, Resume: file }));
     setFileName(file.name);
   };
@@ -282,9 +273,7 @@ export default function Career() {
     setMessage("");
 
     const body = new FormData();
-    Object.entries(formData).forEach(([key, value]) => {
-      if (value) body.append(key, value);
-    });
+    Object.entries(formData).forEach(([k, v]) => v && body.append(k, v));
 
     try {
       const res = await fetch(`${API_BASE}/api/applyJobProfile`, {
@@ -293,10 +282,7 @@ export default function Career() {
       });
 
       const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.message || "Submission failed");
-      }
+      if (!res.ok) throw new Error(data.message);
 
       setMessage("Application submitted successfully. Our team will reach out.");
       setFormData({
@@ -316,11 +302,8 @@ export default function Career() {
     }
   };
 
-  /* ---------------- UI ---------------- */
-
   return (
     <main className="career-page">
-      {/* HERO */}
       <section className="career-hero">
         <h1>Careers at ANTI AI</h1>
         <p>
@@ -329,7 +312,6 @@ export default function Career() {
         </p>
       </section>
 
-      {/* CONTENT */}
       <section className="career-content">
         <div className="career-info">
           <h2>Why work with us?</h2>
@@ -342,14 +324,10 @@ export default function Career() {
           </ul>
         </div>
 
-        {/* FORM */}
         <div className="career-form-card">
           <h3>Apply for a position</h3>
 
-          {loadingPositions && (
-            <p className="form-message">Loading job positions…</p>
-          )}
-
+          {loadingPositions && <p className="form-message">Loading job positions…</p>}
           {positionError && (
             <p className="form-message error">
               Unable to load job positions. Please try again later.
@@ -358,47 +336,12 @@ export default function Career() {
 
           {!loadingPositions && !positionError && (
             <form onSubmit={handleSubmit} className="career-form">
-              <input
-                name="name"
-                placeholder="Full name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-              />
+              <input name="name" placeholder="Full name" required value={formData.name} onChange={handleChange} />
+              <input name="email" type="email" placeholder="Email address" required value={formData.email} onChange={handleChange} />
+              <input name="contact_no" placeholder="Mobile number" required value={formData.contact_no} onChange={handleChange} />
+              <input name="current_location" placeholder="Current location" required value={formData.current_location} onChange={handleChange} />
 
-              <input
-                name="email"
-                type="email"
-                placeholder="Email address"
-                required
-                value={formData.email}
-                onChange={handleChange}
-              />
-
-              <input
-                name="contact_no"
-                placeholder="Mobile number"
-                required
-                value={formData.contact_no}
-                onChange={handleChange}
-              />
-
-              <input
-                name="current_location"
-                placeholder="Current location"
-                required
-                value={formData.current_location}
-                onChange={handleChange}
-              />
-
-              {/* ROLE DROPDOWN */}
-              <select
-                name="role"
-                required
-                value={formData.role}
-                onChange={handleChange}
-                className="career-select"
-              >
+              <select name="role" required value={formData.role} onChange={handleChange} className="career-select">
                 <option value="">Select a role</option>
                 {positions.map((pos) => (
                   <option key={pos.id} value={pos.role}>
@@ -409,12 +352,7 @@ export default function Career() {
 
               <label className="file-upload">
                 <span>{fileName || "Upload resume (PDF, DOC, DOCX)"}</span>
-                <input
-                  type="file"
-                  accept=".pdf,.doc,.docx"
-                  required
-                  onChange={handleFile}
-                />
+                <input type="file" accept=".pdf,.doc,.docx" required onChange={handleFile} />
               </label>
 
               <button type="submit" disabled={submitting}>
