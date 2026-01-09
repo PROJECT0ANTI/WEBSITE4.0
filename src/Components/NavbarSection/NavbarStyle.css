@@ -24,8 +24,8 @@
 
 /* Activated on scroll */
 .main-nav.nav-scrolled::before {
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(10px);
+  background: rgba(2, 3, 8, 0.65);
+  backdrop-filter: blur(14px);
 }
 
 /* =========================
@@ -40,6 +40,8 @@
 .logo {
   font-family: "Ethnocentric";
   font-size: 1.6rem;
+  color: #F9FAFB;
+  letter-spacing: 0.04em;
 }
 
 /* =========================
@@ -55,15 +57,16 @@ ul li {
   font-weight: 550;
 }
 
+/* Base link */
 .nav-link {
   position: relative;
-  transition: color 0.3s ease;
-  color: white;
+  color: #F9FAFB;
+  transition: color 0.25s ease;
 }
 
 /* ACTIVE — underline only, NO color change */
 .nav-link-active {
-  color: white;
+  color: #F9FAFB;
 }
 
 .nav-link-active::after {
@@ -73,12 +76,17 @@ ul li {
   bottom: -6px;
   width: 100%;
   height: 1px;
-  background: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(154, 168, 255, 0.6),
+    transparent
+  );
 }
 
 /* Hover */
 .nav-link:hover {
-  color: rgba(180, 180, 180, 0.85);
+  color: #CBD5F5;
 }
 
 /* =========================
@@ -91,12 +99,13 @@ ul li {
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(2, 3, 8, 0.85);
+    backdrop-filter: blur(14px);
     transform: translateY(-12px);
     opacity: 0;
     pointer-events: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    border-bottom: 1px solid rgba(154, 168, 255, 0.15);
   }
 
   .mobile-menu.open {
@@ -106,11 +115,15 @@ ul li {
   }
 
   .list_style {
-    padding: 12px 0;
-    gap: 8px;
+    padding: 14px 0;
+    gap: 10px;
   }
 
   .list_style li {
     text-align: center;
+  }
+
+  .nav-link {
+    padding: 10px 0;
   }
 }

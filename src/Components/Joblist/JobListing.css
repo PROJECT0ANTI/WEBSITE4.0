@@ -1,66 +1,93 @@
 .career-section {
   padding: 70px 6vw;
   background: #020308;
-  color: #fff;
+  color: #F9FAFB;
 }
 
 .career-title {
   font-size: 2.2rem;
   margin-bottom: 40px;
   font-weight: 700;
+  color: #F9FAFB;
 }
 
+/* ---------------- GRID ---------------- */
 .career-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
 
+/* ---------------- CARD ---------------- */
 .career-card {
-  background: linear-gradient(180deg, #ffffff, #f3f3f3);
-  color: #000;
-  border-radius: 16px;
+  background: radial-gradient(
+    circle at top left,
+    #0B1220,
+    #020617 65%,
+    #020308 100%
+  );
+  color: #CBD5F5;
+  border-radius: 20px;
   padding: 26px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(154, 168, 255, 0.18);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.9);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.3s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .career-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
+  box-shadow:
+    0 0 0 1px rgba(154, 168, 255, 0.22),
+    0 0 40px rgba(154, 168, 255, 0.35),
+    0 45px 100px rgba(0, 0, 0, 1);
 }
 
+/* ---------------- ROLE ---------------- */
 .career-role {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 16px;
-  text-decoration: underline;
+  text-decoration: none;
+  color: #9AA8FF;
 }
 
+/* ---------------- TEXT ---------------- */
 .career-card p {
   margin: 6px 0;
   font-size: 0.95rem;
+  color: #CBD5F5;
 }
 
+/* ---------------- BUTTON ---------------- */
 .career-apply-btn {
   margin-top: 18px;
   padding: 14px;
   width: 100%;
-  background: #000;
-  color: #fff;
+  background: linear-gradient(
+    135deg,
+    #9AA8FF,
+    #8293FF
+  );
+  color: #020308;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .career-apply-btn:hover {
-  background: #222;
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 30px rgba(154, 168, 255, 0.45);
 }
 
-/* animation */
+/* ---------------- ANIMATION ---------------- */
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
@@ -72,15 +99,15 @@
   transform: translateY(0);
 }
 
-/* states */
+/* ---------------- STATES ---------------- */
 .career-loading,
 .career-error {
   padding: 80px 6vw;
   text-align: center;
-  color: #cbd5f5;
+  color: #CBD5F5;
 }
 
-/* responsive */
+/* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 1100px) {
   .career-grid {
     grid-template-columns: repeat(2, 1fr);

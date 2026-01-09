@@ -30,7 +30,7 @@ const HeroSection = () => {
 
         <div className="hero-content" ref={heroContentRef}>
           <div className="text-wrapper">
-            <h1>We're Anti AI,</h1>
+            <h1>We're ANTI AI,</h1>
 
             <h1 className="typewriter-wrapper">
               <Typewriter

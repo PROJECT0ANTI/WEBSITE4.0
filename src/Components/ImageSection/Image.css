@@ -5,59 +5,81 @@
 }
 
 :root {
-  font-size: 17px; /* Default font size to convert px to rem */
+  font-size: 17px;
 }
 
+/* ---------------- PROJECTS ---------------- */
 .projects {
   text-align: center;
+  background: transparent; /* allow animation behind */
+  color: #F9FAFB;
 }
 
+/* ---------------- CONTAINER ---------------- */
 .image-container {
   display: flex;
   flex-direction: row;
-  box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
-  margin: auto;
-  max-height: 42rem;
-  max-width: 72rem; /* 1100px / 16 = 72rem */
-  padding: 1.5rem; /* 20px / 16 = 1.25rem */
-  border-radius: 0.5rem; /* 8px / 16 = 0.5rem */
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* 2px and 4px / 16 = 0.125rem and 0.25rem */
-  opacity: 0; /* Initially hidden */
+
+  margin: 48px auto; /* 🔧 controls gap between sections */
+  max-width: 72rem;
+  padding: 1.5rem;
+
+  border-radius: 1.25rem;
+
+  /* 🔧 transparent glass look */
+  background: rgba(2, 3, 8, 0.45);
+  backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(154, 168, 255, 0.16);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.75);
+
+  opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
 
 .image-container.reverse {
-  flex-direction: row-reverse; 
+  flex-direction: row-reverse;
 }
 
+/* ---------------- COLUMNS ---------------- */
 .image-wrapper,
 .description-wrapper {
-  flex: 1; /* Make each take up 50% of the container */
-  max-width: 50%; /* Ensure they each take up no more than 50% of the container */
+  flex: 1;
+  max-width: 50%;
 }
 
+/* ---------------- IMAGE ---------------- */
 .image-wrapper img {
   width: 100%;
-  padding: 30px; /* Ensure image doesn't exceed its container */
-  border-radius: 3.25rem; /* 4px / 16 = 0.25rem */
+  padding: 24px;
+  border-radius: 3rem;
   opacity: 0;
+  background: transparent;
 }
 
+/* ---------------- DESCRIPTION ---------------- */
 .description-wrapper {
-  /* Use clamp for responsive padding */
   box-sizing: border-box;
-  background-color: #060606c3;
-  padding: 1.125rem; /* 18px / 16 = 1.125rem */
-  border-top-right-radius: 3.25rem;
+
+  /* 🔧 more transparency so animation shows */
+  background: rgba(2, 3, 8, 0.35);
+  backdrop-filter: blur(6px);
+
+  padding: 1.25rem;
+  border-top-right-radius: 3rem;
+
+  border: 1px solid rgba(154, 168, 255, 0.12);
   opacity: 0;
 }
 
 .description-wrapper p {
-  font-size: 1rem; /* Use clamp for responsive font size */
-  line-height: 1.5;
-  color: #948f8f;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #CBD5F5;
 }
 
 .description-wrapper ul {
@@ -67,21 +89,22 @@
 }
 
 .description-wrapper li {
-  color: rgb(177, 183, 190);
+  color: #94A3B8;
 }
 
+/* ---------------- ICON / LOGO ---------------- */
 .card-logo {
   text-align: center;
   font-size: 2rem;
-  color: rgb(220, 222, 225);
+  color: #9AA8FF;
 }
 
-/* Media Query for smaller screens */
+/* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 50rem) {
-  /* 800px / 16 = 50rem */
   .image-container {
     flex-direction: column;
     align-items: center;
+    margin: 36px auto; /* tighter on mobile */
   }
 
   .image-wrapper,
@@ -90,37 +113,24 @@
   }
 
   .description-wrapper {
-    padding: clamp(
-      0.625rem,
-      4vw,
-      1rem
-    ); /* Adjust padding for smaller screens */
+    padding: clamp(0.75rem, 4vw, 1rem);
   }
 
   .description-wrapper p {
-    font-size: clamp(
-      1rem,
-      3vw,
-      1.25rem
-    ); 
-    text-align: justify;/* Adjust font size for smaller screens */
+    font-size: clamp(0.95rem, 3vw, 1.15rem);
+    text-align: justify;
   }
 
-  
   .image-container.reverse {
     flex-direction: column;
   }
 
   .image-wrapper img {
-    padding: 0; 
-  }
-
-  .image-wrapper,
-  .description-wrapper {
-    max-width: 100%;
+    padding: 0;
   }
 }
 
+/* ---------------- ANIMATIONS ---------------- */
 @keyframes fadeInLeft {
   0% {
     opacity: 0;

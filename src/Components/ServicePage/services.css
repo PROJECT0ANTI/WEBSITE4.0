@@ -1,5 +1,5 @@
 .services-root {
-  background: #000000;
+  background: #020308;
   color: #ffffff;
 }
 
@@ -17,7 +17,7 @@
 .hero-sub {
   max-width: 760px;
   margin: 24px auto 0;
-  color: #cbd5f5;
+  color: #CBD5F5;
   line-height: 1.7;
 }
 
@@ -30,15 +30,20 @@
 
 .section-sub {
   text-align: center;
-  color: #cbd5f5;
+  color: #CBD5F5;
   margin-bottom: 80px;
 }
 
 /* -------------------------------- GLOW CARD -------------------------------- */
 .glow-card {
-  background: radial-gradient(circle at top left, #141423, #050509);
+  background: radial-gradient(
+    circle at top left,
+    #0B1220 0%,
+    #020617 60%,
+    #020308 100%
+  );
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(154, 168, 255, 0.18);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
   transition: transform 0.45s ease, box-shadow 0.45s ease;
 }
@@ -46,8 +51,8 @@
 .glow-card:hover {
   transform: translateY(-12px);
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.12),
-    0 0 40px rgba(130, 150, 255, 0.35),
+    0 0 0 1px rgba(154, 168, 255, 0.18),
+    0 0 40px rgba(154, 168, 255, 0.35),
     0 45px 100px rgba(0, 0, 0, 1);
 }
 
@@ -74,7 +79,7 @@
 .category-btn {
   padding: 14px 18px;
   background: transparent;
-  color: #cbd5f5;
+  color: #CBD5F5;
   border-radius: 12px;
   border: 1px solid transparent;
   text-align: left;
@@ -83,12 +88,13 @@
 }
 
 .category-btn:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(154, 168, 255, 0.08);
 }
 
 .category-btn.active {
-  background: #ffffff;
-  color: #000000;
+  background: rgba(154, 168, 255, 0.18);
+  color: #ffffff;
+  border-color: rgba(154, 168, 255, 0.45);
 }
 
 .category-content {
@@ -112,7 +118,7 @@
 }
 
 .check {
-  color: #9aa8ff;
+  color: #9AA8FF;
 }
 
 /* -------------------------------- PROCESS -------------------------------- */
@@ -130,12 +136,11 @@
 
 .process-card {
   padding: 40px;
-  min-height: 220px;
 }
 
 .process-num {
   font-size: 2.2rem;
-  color: #94a3b8;
+  color: #94A3B8;
   margin-bottom: 10px;
 }
 
@@ -182,7 +187,7 @@
 .link-text {
   margin-top: 18px;
   display: inline-block;
-  color: #ffffff;
+  color: #9AA8FF;
 }
 
 /* -------------------------------- RESPONSIVE -------------------------------- */

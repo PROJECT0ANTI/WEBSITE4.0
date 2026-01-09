@@ -1,9 +1,9 @@
 .career-page {
   background: #020308;
-  color: #ffffff;
+  color: #F9FAFB;
 }
 
-/* HERO */
+/* ---------------- HERO ---------------- */
 .career-hero {
   padding: 140px 6vw 100px;
   text-align: center;
@@ -15,12 +15,12 @@
 }
 
 .career-hero p {
-  color: #cbd5f5;
+  color: #CBD5F5;
   max-width: 640px;
   margin: 18px auto 0;
 }
 
-/* CONTENT */
+/* ---------------- CONTENT ---------------- */
 .career-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -42,7 +42,7 @@
 
 .career-info li {
   margin-bottom: 14px;
-  color: #cbd5f5;
+  color: #CBD5F5;
   position: relative;
   padding-left: 20px;
 }
@@ -54,16 +54,24 @@
   top: 8px;
   width: 8px;
   height: 8px;
-  background: #22c55e;
+  background: #9AA8FF;
   border-radius: 50%;
 }
 
-/* FORM CARD */
+/* ---------------- FORM CARD ---------------- */
 .career-form-card {
-  background: radial-gradient(circle at top left, #0b1220, #020308 70%);
-  border: 1px solid rgba(34, 197, 94, 0.18);
+  background: radial-gradient(
+    circle at top left,
+    rgba(154, 168, 255, 0.12),
+    #020617 60%,
+    #020308 100%
+  );
+  border: 1px solid rgba(154, 168, 255, 0.25);
   border-radius: 24px;
   padding: 40px;
+  box-shadow:
+    0 0 0 1px rgba(154, 168, 255, 0.1),
+    0 30px 70px rgba(0, 0, 0, 0.9);
 }
 
 .career-form-card h3 {
@@ -71,7 +79,7 @@
   margin-bottom: 24px;
 }
 
-/* FORM */
+/* ---------------- FORM ---------------- */
 .career-form {
   display: flex;
   flex-direction: column;
@@ -86,7 +94,7 @@
   font-size: 1rem;
 }
 
-/* ✅ DROPDOWN FIX */
+/* ---------------- SELECT ---------------- */
 .career-select {
   background: #ffffff;
   color: #020308;
@@ -99,39 +107,49 @@
 
 .career-select:focus {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.5);
+  box-shadow: 0 0 0 2px rgba(154, 168, 255, 0.6);
 }
 
 .career-select option {
   background: #ffffff;
   color: #020308;
-  padding: 10px;
 }
 
-/* FILE UPLOAD */
+/* ---------------- FILE UPLOAD ---------------- */
 .file-upload {
-  border: 1px dashed rgba(34, 197, 94, 0.4);
+  border: 1px dashed rgba(154, 168, 255, 0.5);
   padding: 14px;
   border-radius: 10px;
   cursor: pointer;
   text-align: center;
-  color: #cbd5f5;
+  color: #CBD5F5;
+  transition: border-color 0.25s ease;
+}
+
+.file-upload:hover {
+  border-color: #9AA8FF;
 }
 
 .file-upload input {
   display: none;
 }
 
-/* BUTTON */
+/* ---------------- BUTTON ---------------- */
 .career-form button {
   margin-top: 10px;
-  background: #22c55e;
+  background: #9AA8FF;
   color: #020308;
   padding: 12px;
   border-radius: 10px;
   cursor: pointer;
   border: none;
-  transition: opacity 0.2s ease;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.career-form button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(154, 168, 255, 0.45);
 }
 
 .career-form button:disabled {
@@ -139,7 +157,7 @@
   cursor: not-allowed;
 }
 
-/* ✅ MESSAGE / TOAST STYLE */
+/* ---------------- MESSAGE / TOAST ---------------- */
 .form-message {
   margin-top: 14px;
   padding: 12px 14px;
@@ -148,9 +166,9 @@
 }
 
 .form-message.success {
-  background: rgba(34, 197, 94, 0.15);
-  border: 1px solid #22c55e;
-  color: #a7f3d0;
+  background: rgba(154, 168, 255, 0.15);
+  border: 1px solid rgba(154, 168, 255, 0.6);
+  color: #CBD5F5;
 }
 
 .form-message.error {
@@ -159,7 +177,7 @@
   color: #fecaca;
 }
 
-/* RESPONSIVE */
+/* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 900px) {
   .career-content {
     grid-template-columns: 1fr;
