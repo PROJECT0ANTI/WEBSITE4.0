@@ -1,23 +1,30 @@
+// src/Components/ChatbotComponents/Chatbot.jsx
+
 import React, { useState, useEffect, useRef } from "react";
 import ChatMessage from "./ChatMessage";
-import './Chat.css';
+import "./Chat.css";
 import Features from "./Features";
+import { callChatApi } from "../../api/mockApi";
 
 function Chatbot({ showChatbot, onClose }) {
-  const [messages, setMessages] = useState([
-    { text: "Welcome to Anti-AI. How can I help you?", type: "incoming" },
+  // Conversation history
+  const [conversationHistory, setConversationHistory] = useState([
+    { text: "Welcome to Anti-AI. How can I help you?", type: "incoming", id: Date.now() },
   ]);
 
   const [inputMessage, setInputMessage] = useState("");
-  const [textareaVisible, setTextareaVisible] = useState(false); // State to control textarea visibility
+  const [isLoading, setIsLoading] = useState(false);
+  const [textareaVisible, setTextareaVisible] = useState(false);
+
   const chatboxRef = useRef(null);
   const textareaRef = useRef(null);
 
+  // Auto-scroll to latest message
   useEffect(() => {
     if (chatboxRef.current) {
       chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
     }
-  }, [messages]);
+  }, [conversationHistory]);
 
   const handleInputChange = (e) => {
     setInputMessage(e.target.value);
@@ -32,81 +39,60 @@ function Chatbot({ showChatbot, onClose }) {
   };
 
   const handleFeatureClick = (feature) => {
-    if (feature === 'Other') {
+    if (feature === "Other") {
       setTextareaVisible(true);
     } else {
-      setTextareaVisible(false); // Hide textarea for other features
-      setMessages(prevMessages => [
-        ...prevMessages,
-        { text: `You selected: ${feature}`, type: "outgoing" },
-        { text: "Thinking...", type: "incoming" }
-      ]);
+      setTextareaVisible(false);
+      sendMessage(feature);
+    }
+  };
 
-      setTimeout(() => {
-        fetch('/api/chat', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ message: feature }),
-        })
-        .then(response => response.json())
-        .then(data => {
-          setMessages(prevMessages => {
-            const newMessages = [...prevMessages];
-            newMessages.pop(); 
-            return [...newMessages, { text: data.response, type: "incoming" }];
-          });
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          setMessages(prevMessages => {
-            const newMessages = [...prevMessages];
-            newMessages.pop(); 
-            return [...newMessages, { text: "Sorry, something went wrong. Please try again.", type: "incoming" }];
-          });
-        });
-      }, 100); 
+  const sendMessage = async (messageText) => {
+    if (!messageText || !messageText.trim()) return;
+
+    // Add user message
+    const userMessageId = Date.now();
+    const userMessage = {
+      text: messageText,
+      type: "outgoing",
+      id: userMessageId,
+    };
+
+    setConversationHistory((prev) => [...prev, userMessage]);
+    setInputMessage("");
+    setIsLoading(true);
+
+    try {
+      // Call the chatbot API
+      const data = await callChatApi(messageText);
+
+      // Add bot response
+      const botMessage = {
+        text: data.response || "Sorry, I couldn't understand that.",
+        type: "incoming",
+        id: Date.now() + 1,
+      };
+
+      setConversationHistory((prev) => [...prev, botMessage]);
+    } catch (error) {
+      console.error("Error sending message:", error);
+
+      // Add error message
+      const errorMessage = {
+        text: "Sorry, something went wrong. Please try again.",
+        type: "incoming",
+        id: Date.now() + 1,
+      };
+
+      setConversationHistory((prev) => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleSendMessage = () => {
-    if (!inputMessage.trim()) return;
-
-    setMessages([...messages, { text: inputMessage, type: "outgoing" }]);
-
-    setInputMessage("");
-
-    setMessages(prevMessages => [
-      ...prevMessages,
-      { text: "Thinking...", type: "incoming" },
-    ]);
-
-    setTimeout(() => {
-      fetch('/api/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: inputMessage }),
-      })
-      .then(response => response.json())
-      .then(data => {
-        setMessages(prevMessages => {
-          const newMessages = [...prevMessages];
-          newMessages.pop(); 
-          return [...newMessages, { text: data.response, type: "incoming" }];
-        });
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        setMessages(prevMessages => {
-          const newMessages = [...prevMessages];
-          newMessages.pop(); 
-          return [...newMessages, { text: "Sorry, something went wrong. Please try again.", type: "incoming" }];
-        });
-      });
-    }, 200); 
+    if (isLoading) return;
+    sendMessage(inputMessage);
   };
 
   const handleKeyDown = (e) => {
@@ -118,9 +104,10 @@ function Chatbot({ showChatbot, onClose }) {
 
   return (
     <div className={`chatbot ${showChatbot ? "show" : ""}`}>
+      {/* Header */}
       <header className="header-chat">
-        <img 
-          src='/static/robot-assistant.png'
+        <img
+          src="/static/robot-assistant.png"
           alt="Profile"
           className="profile-image"
         />
@@ -137,14 +124,26 @@ function Chatbot({ showChatbot, onClose }) {
         </span>
       </header>
 
+      {/* Features Section */}
       <Features onFeatureClick={handleFeatureClick} />
 
+      {/* Chat Messages */}
       <ul className="chatbox" ref={chatboxRef}>
-        {messages.map((message, index) => (
-          <ChatMessage key={index} message={message} />
+        {conversationHistory.map((message) => (
+          <ChatMessage key={message.id} message={message} />
         ))}
+
+        {/* Loading indicator */}
+        {isLoading && (
+          <li className="chat incoming">
+            <div className="chat-content">
+              <p className="thinking">Thinking...</p>
+            </div>
+          </li>
+        )}
       </ul>
 
+      {/* Chat Input */}
       {textareaVisible && (
         <div className="chat-input">
           <textarea
@@ -153,14 +152,16 @@ function Chatbot({ showChatbot, onClose }) {
             value={inputMessage}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-          ></textarea>
-          <span
+            disabled={isLoading}
+          />
+          <button
             id="send-btn"
             className="material-symbols-outlined"
             onClick={handleSendMessage}
+            disabled={isLoading || !inputMessage.trim()}
           >
             send
-          </span>
+          </button>
         </div>
       )}
     </div>
