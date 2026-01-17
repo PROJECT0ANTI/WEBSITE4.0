@@ -1,0 +1,91 @@
+.legal-page {
+  min-height: 100vh;
+  background: #020308;
+  color: #ffffff;
+  padding: 120px 6vw 160px;
+  font-family: "Inter", sans-serif;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Page Title */
+.legal-title {
+  font-family: "Playfair Display", serif;
+  font-size: 3.2rem;
+  font-weight: 300;
+  margin-bottom: 48px;
+  color: #046307;
+}
+
+/* Section */
+.legal-section {
+  margin-bottom: 42px;
+}
+
+.legal-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+  position: relative;
+  letter-spacing: 0.04em;
+  color: #046307; /* brand green */
+}
+
+
+/* subtle green underline */
+.legal-section h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin-top: 10px;
+  background: #046307;
+  opacity: 0.7;
+}
+
+.legal-section p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  opacity: 0.85;
+  margin-top: 14px;
+}
+
+/* Links */
+.legal-section a {
+  color: #046307;
+  text-decoration: none;
+}
+
+.legal-section a:hover {
+  text-decoration: underline;
+}
+
+/* Close button */
+.legal-close {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.legal-close button {
+  padding: 12px 42px;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  background: transparent;
+  color: #046307;
+  border: 1px solid #046307;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.legal-close button:hover {
+  background: #046307;
+  color: #ffffff;
+}

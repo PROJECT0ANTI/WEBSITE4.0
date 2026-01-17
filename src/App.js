@@ -32,6 +32,10 @@ import Webser from "./Components/SpecificContactPage/webcontact";
 import AntiZero from "./Components/ProductPages/AntiZero";
 import Enterprise from "./Components/ProductPages/Enterprise";
 
+// Policy pages
+import Privacy from "./Components/Policies/Privacy";
+import TnC from "./Components/Policies/T&C";
+
 function App() {
   return (
     <Router>
@@ -100,6 +104,10 @@ function App() {
                 <Route path="/Appcontact" element={<Appcontact />} />
                 <Route path="/Cloud" element={<Cloud />} />
                 <Route path="/Webser" element={<Webser />} />
+
+                {/* legal pages */}
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<TnC />} />
               </Routes>
 
               <Footer />

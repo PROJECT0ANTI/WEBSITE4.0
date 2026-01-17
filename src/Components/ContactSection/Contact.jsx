@@ -1,147 +1,189 @@
 import React, { useState } from "react";
-import "./Contact.css"; // Import the CSS file for styling
+import "./Contact.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
+    company: "",
+    message: "",
     email: "",
-    phoneNumber: "",
-    message: ""
+    phone: "",
+    agreed: false,
   });
 
-  const [errors, setErrors] = useState({});
-
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const validate = () => {
-    let formErrors = {};
-    if (!formData.firstName) formErrors.firstName = "First Name is required";
-    if (!formData.lastName) formErrors.lastName = "Last Name is required";
-    if (!formData.email) formErrors.email = "Email is required";
-    if (!formData.phoneNumber) formErrors.phoneNumber = "Phone Number is required";
-    if (!formData.message) formErrors.message = "Message is required";
-    return formErrors;
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formErrors = validate();
-    if (Object.keys(formErrors).length === 0) {
-      // No errors, proceed with form submission
-      // You can use the fetch API or any other method to submit the form data
-      console.log("Form submitted successfully", formData);
-      // Reset form data after submission
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phoneNumber: "",
-        message: ""
-      });
-    } else {
-      setErrors(formErrors);
-    }
+    console.log("Submitted:", formData);
   };
 
   return (
-    <div className="landing_page">
-      <div className="responsive-container-block big-container">
-        <div className="responsive-container-block container">
-          <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 left-one">
-            <div className="content-box">
-              <p className="text-blk section-head">Get in Touch</p>
-              <p className="text-blk section-subhead">
-                We're dedicated to safeguarding the future of humanity through ethical and responsible AI development. If you share our vision or have any inquiries, we'd love to hear from you.
+    <section className="contact-page">
+      {/* Background logo */}
+      <div className="contact-bg-logo" />
+
+      {/* Ambient glow */}
+      <div className="contact-glow top" />
+      <div className="contact-glow bottom" />
+
+      <div className="contact-container">
+        {/* LEFT SIDEBAR */}
+        <aside className="contact-sidebar">
+          <div>
+            <p className="sidebar-label">CONTACT</p>
+
+            <div className="sidebar-block">
+              <span>Ph.1</span>
+              <a href="tel:+919116665513">+91-9116665513</a>
+            </div>
+
+            <div className="sidebar-block">
+              <span>Ph.2</span>
+              <a href="tel:+919358894622">+91-9358894622</a>
+            </div>
+
+            <div className="sidebar-block">
+              <span>Em.1</span>
+              <p>
+                Business Ideas<br />
+                <a href="mailto:hello@antiai.ltd">hello@antiai.ltd</a>
               </p>
-              <div className="icons-container">
-                <a className="share-icon" href="https://www.linkedin.com/company/anti-ai/">
-                  <img className="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/900px-LinkedIn_logo_initials.png" alt="LinkedIn" />
-                </a>
-                <a className="share-icon">
-                  <img className="img" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-facebook.png" alt="Facebook" />
-                </a>
-                <a className="share-icon">
-                  <img className="img" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-google.png" alt="Google" />
-                </a>
-                <a className="share-icon" href="https://www.instagram.com/antiai.ltd/">
-                  <img className="img" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-instagram.png" alt="Instagram" />
-                </a>
-              </div>
+            </div>
+
+            <div className="sidebar-block">
+              <span>Em.2</span>
+              <p>
+                Press & Media<br />
+                <a href="mailto:support@antiai.ltd">support@antiai.ltd</a>
+              </p>
+            </div>
+
+            <div className="sidebar-block">
+              <span>Em.3</span>
+              <p>
+                Human Resource<br />
+                <a href="mailto:hr@antiai.ltd">hr@antiai.ltd</a>
+              </p>
             </div>
           </div>
-          <div className="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6 right-one" id="i1zj">
-            <form className="form-box" onSubmit={handleSubmit}>
-              <div className="container-block form-wrapper">
-                <p className="text-blk contactus-head">
-                  Let's Connect
-                </p>
-                <p className="text-blk contactus-subhead">Our Team will get back to you shortly</p>
-                <div className="responsive-container-block">
-                  <div className="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i10mt-7">
-                    <input
-                      className="input"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      placeholder="First Name"
-                    />
-                    {errors.firstName && <p className="error">{errors.firstName}</p>}
-                  </div>
-                  <div className="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i1ro7">
-                    <input
-                      className="input"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      placeholder="Last Name"
-                    />
-                    {errors.lastName && <p className="error">{errors.lastName}</p>}
-                  </div>
-                  <div className="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-6 wk-ipadp-6 emial" id="ityct">
-                    <input
-                      className="input"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Email"
-                    />
-                    {errors.email && <p className="error">{errors.email}</p>}
-                  </div>
-                  <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
-                    <input
-                      className="input"
-                      name="phoneNumber"
-                      value={formData.phoneNumber}
-                      onChange={handleChange}
-                      placeholder="Phone Number"
-                    />
-                    {errors.phoneNumber && <p className="error">{errors.phoneNumber}</p>}
-                  </div>
-                  <div className="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i634i-7">
-                    <textarea
-                      className="textinput"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Type message here"
-                    />
-                    {errors.message && <p className="error">{errors.message}</p>}
-                  </div>
-                </div>
-                <button className="submit-btn" type="submit">Submit</button>
+
+
+          <div>
+            <p className="sidebar-label">SOCIAL</p>
+<ul className="social-list">
+  <li data-index="01">
+    <a href="" aria-label="Instagram">Instagram</a>
+  </li>
+  <li data-index="02">
+    <a href="" aria-label="X">X</a>
+  </li>
+  <li data-index="03">
+    <a href="" aria-label="YouTube">YouTube</a>
+  </li>
+  <li data-index="04">
+    <a href="" aria-label="LinkedIn">LinkedIn</a>
+  </li>
+</ul>
+
+
+          </div>
+        </aside>
+
+        {/* FORM */}
+        <div className="contact-form-wrapper">
+          <div className="contact-card">
+            <form onSubmit={handleSubmit}>
+              <div className="form-row">
+                <h1>
+                  Hello Team <span>ANTI-AI</span>,<br />
+                  my name is
+                </h1>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="TYPE YOUR NAME"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-row">
+                <h2>and I <span>work</span> in</h2>
+                <input
+                  type="text"
+                  name="company"
+                  placeholder="TYPE YOUR COMPANY"
+                  value={formData.company}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-row">
+                <h2><span>Also,</span> here’s my brief</h2>
+                <textarea
+                  name="message"
+                  placeholder="TYPE YOUR MESSAGE"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={3}
+                />
+              </div>
+
+              <div className="form-row">
+                <h2>
+                  You can reach me by <span>email</span> at
+                </h2>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="TYPE YOUR EMAIL ADDRESS"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-row">
+                <h3>or <span>phone</span> at</h3>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="TYPE YOUR PHONE NUMBER"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-footer">
+                <label className="privacy">
+                  <input
+                    type="checkbox"
+                    name="agreed"
+                    checked={formData.agreed}
+                    onChange={handleChange}
+                  />
+                  <span>
+                    I agree to the{" "}
+                    <a href="/privacy">Privacy Policy</a> and{" "}
+                    <a href="/terms">T&C</a>
+                  </span>
+                </label>
+
+                <button type="submit" className="send-btn">
+                  ( Send )
+                </button>
               </div>
             </form>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

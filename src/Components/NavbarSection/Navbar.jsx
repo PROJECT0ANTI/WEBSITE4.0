@@ -205,7 +205,7 @@ const MyNavbar = () => {
               { path: "/about", label: "About" },
               { path: "/team", label: "Team" },
               { path: "/career", label: "Career" },
-              { path: "/contact", label: "Contact" },
+              { path: "/contact", label: "Wanna talk?" },
             ].map((item) => (
               <li key={item.path}>
                 <a
