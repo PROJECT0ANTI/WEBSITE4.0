@@ -82,14 +82,28 @@
   color: #CBD5F5;
 }
 
-.description-wrapper ul {
+/* ---------------- KEYWORDS (FIXED SPACING) ---------------- */
+.keywords {
   display: flex;
-  justify-content: space-around;
-  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px; /* ✅ space between keywords */
+  margin: 16px 0 18px;
 }
 
-.description-wrapper li {
+.keyword-item {
+  font-size: 0.95rem;
   color: #94A3B8;
+  white-space: nowrap;
+}
+
+.keyword-item a {
+  color: #9AA8FF;
+  text-decoration: none;
+}
+
+.keyword-item a:hover {
+  text-decoration: underline;
 }
 
 /* ---------------- ICON / LOGO ---------------- */

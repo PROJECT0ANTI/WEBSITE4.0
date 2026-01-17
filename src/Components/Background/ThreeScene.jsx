@@ -190,7 +190,6 @@ import NET from "vanta/dist/vanta.net.min";
 
 import Hero from "../HeroSection/Hero";
 import Image from "../ImageSection/Image";
-import Contact from "../ContactSection/Contact";
 import Container from "../ChatbotComponents/Container";
 
 const ThreeScene = () => {
@@ -206,7 +205,7 @@ const ThreeScene = () => {
       minWidth: 200,
       scale: 1,
       scaleMobile: 1,
-      color: 0xf5f5f5,
+      color: 0x046307,
       maxDistance: 24,
       spacing: 18,
       backgroundColor: 0x000000,
@@ -245,7 +244,6 @@ const ThreeScene = () => {
         </h1>
 
         <Image />
-        <Contact />
         <Container />
       </main>
     </div>

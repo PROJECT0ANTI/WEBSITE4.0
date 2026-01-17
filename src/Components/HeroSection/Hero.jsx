@@ -50,17 +50,18 @@ const HeroSection = () => {
             </h1>
 
             <p className="hero-p">
-              We're An Innovative Software Company. Protecting Humanity from the
-              uncontrolled rise of Artificial Intelligence, Safeguarding people
-              across the globe through our Innovative Software solutions.
+              ANTI AI is a software company focused on responsible, 
+              human-governed artificial intelligence. 
+              We design systems that are powerful, auditable, 
+              and aligned with real-world accountability.
             </p>
 
             {expanded && (
               <p className="hero-p expanded-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                We help organizations build, deploy, and scale artificial intelligence 
+                without losing transparency, security, or human oversight. 
+                From AI engineering and data systems to cybersecurity and governance, 
+                our work ensures technology serves people, not the other way around.
               </p>
             )}
 

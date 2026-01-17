@@ -28,15 +28,17 @@ import Appcontact from "./Components/SpecificContactPage/appcontact";
 import Cloud from "./Components/SpecificContactPage/cloudcontact";
 import Webser from "./Components/SpecificContactPage/webcontact";
 
+// Product pages
+import AntiZero from "./Components/ProductPages/AntiZero";
+import Enterprise from "./Components/ProductPages/Enterprise";
+
 function App() {
   return (
     <Router>
-
       {/* HEADER ALWAYS */}
       <Navbar />
 
       <Routes>
-
         {/* HOME — special layout */}
         <Route
           path="/"
@@ -71,11 +73,27 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/projects" element={<Projects />} />
 
+                {/* product pages */}
+                <Route path="/products/anti-0" element={<AntiZero />} />
+                <Route
+                  path="/products/enterprise"
+                  element={<Enterprise />}
+                />
+
                 {/* specific services */}
                 <Route path="/AIservices" element={<AIservices />} />
-                <Route path="/AppDevelopment" element={<AppDevelopment />} />
-                <Route path="/InteractiveDashboards" element={<InteractiveDashboards />} />
-                <Route path="/CloudServices" element={<CloudServices />} />
+                <Route
+                  path="/AppDevelopment"
+                  element={<AppDevelopment />}
+                />
+                <Route
+                  path="/InteractiveDashboards"
+                  element={<InteractiveDashboards />}
+                />
+                <Route
+                  path="/CloudServices"
+                  element={<CloudServices />}
+                />
 
                 {/* contact sub pages */}
                 <Route path="/AiContact" element={<AiContact />} />
@@ -88,7 +106,6 @@ function App() {
             </main>
           }
         />
-
       </Routes>
     </Router>
   );
