@@ -79,16 +79,16 @@ const Contact = () => {
             <p className="sidebar-label">SOCIAL</p>
 <ul className="social-list">
   <li data-index="01">
-    <a href="" aria-label="Instagram">Instagram</a>
+    <a href="/" aria-label="Instagram">Instagram</a>
   </li>
   <li data-index="02">
-    <a href="" aria-label="X">X</a>
+    <a href="/" aria-label="X">X</a>
   </li>
   <li data-index="03">
-    <a href="" aria-label="YouTube">YouTube</a>
+    <a href="/" aria-label="YouTube">YouTube</a>
   </li>
   <li data-index="04">
-    <a href="" aria-label="LinkedIn">LinkedIn</a>
+    <a href="/" aria-label="LinkedIn">LinkedIn</a>
   </li>
 </ul>
 

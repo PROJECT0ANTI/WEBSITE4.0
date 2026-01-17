@@ -3,8 +3,8 @@ import React from "react";
 
 import { Layout, Row, Col, Typography, Space } from "antd";
 import {
-  FacebookFilled,
-  TwitterCircleFilled,
+  // FacebookFilled,
+  // TwitterCircleFilled,
   InstagramFilled,
   LinkedinFilled,
   PhoneOutlined,
@@ -113,7 +113,7 @@ const CustomFooter = () => (
       </Col>
     </Row>
     <Row justify="center" style={{ marginTop: "20px" }}>
-      <Text style={{ color: "white" }}>&copy; Anti AI Private limited.</Text>
+      <Text style={{ color: "white" }}>&copy; ANTI-AI Private limited.</Text>
     </Row>
   </Footer>
 );
