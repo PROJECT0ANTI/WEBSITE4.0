@@ -24,7 +24,7 @@
 
 /* Activated on scroll */
 .main-nav.nav-scrolled::before {
-  background: rgba(2, 3, 8, 0.65);
+  background: rgba(2, 8, 4, 0.65); /* tuned for green system */
   backdrop-filter: blur(14px);
 }
 
@@ -42,6 +42,9 @@
   font-size: 1.6rem;
   color: #F9FAFB;
   letter-spacing: 0.04em;
+
+  /* subtle green aura */
+  text-shadow: 0 0 18px rgba(4, 99, 7, 0.35);
 }
 
 /* =========================
@@ -61,7 +64,7 @@ ul li {
 .nav-link {
   position: relative;
   color: #F9FAFB;
-  transition: color 0.25s ease;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
 /* ACTIVE — underline only, NO color change */
@@ -76,17 +79,21 @@ ul li {
   bottom: -6px;
   width: 100%;
   height: 1px;
+
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(154, 168, 255, 0.6),
+    rgba(4, 99, 7, 0.75),
     transparent
   );
+
+  box-shadow: 0 0 12px rgba(4, 99, 7, 0.55);
 }
 
 /* Hover */
 .nav-link:hover {
-  color: #CBD5F5;
+  color: #E6F9EC;
+  text-shadow: 0 0 10px rgba(4, 99, 7, 0.45);
 }
 
 /* =========================
@@ -99,13 +106,17 @@ ul li {
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(2, 3, 8, 0.85);
+
+    background: rgba(2, 8, 4, 0.88);
     backdrop-filter: blur(14px);
+
     transform: translateY(-12px);
     opacity: 0;
     pointer-events: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    border-bottom: 1px solid rgba(154, 168, 255, 0.15);
+
+    border-bottom: 1px solid rgba(4, 99, 7, 0.25);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
   }
 
   .mobile-menu.open {

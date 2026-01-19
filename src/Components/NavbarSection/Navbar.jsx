@@ -200,12 +200,12 @@ const MyNavbar = () => {
 
           <ul className="list_style flex flex-col font-normal mt-4 list-none rounded-lg md:space-x-8 md:flex-row md:mt-0 md:border-0">
             {[
-              { path: "/home", label: "Home" },
-              { path: "/services", label: "Services" },
-              { path: "/about", label: "About" },
-              { path: "/team", label: "Team" },
-              { path: "/career", label: "Career" },
-              { path: "/contact", label: "Wanna talk?" },
+              { path: "/home", label: "The Prologue" },
+              { path: "/services", label: "Capabilities" },
+              { path: "/about", label: "Our Story" },
+              { path: "/team", label: "The Makers" },
+              { path: "/career", label: "New Chapters" },
+              { path: "/contact", label: "Collaborate?" },
             ].map((item) => (
               <li key={item.path}>
                 <a

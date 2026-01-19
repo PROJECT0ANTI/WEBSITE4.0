@@ -1,24 +1,30 @@
 .our-team {
   padding: 40px;
   margin-bottom: 30px;
+
   background: radial-gradient(
     circle at top left,
-    rgba(154, 168, 255, 0.12),
+    rgba(4, 99, 7, 0.18),
     #020617 60%,
     #020308 100%
   );
+
   text-align: center;
   overflow: hidden;
   position: relative;
   border-radius: 22px;
-  border: 1px solid rgba(154, 168, 255, 0.25);
+
+  border: 1px solid rgba(4, 99, 7, 0.35);
+
   box-shadow:
-    0 0 0 1px rgba(154, 168, 255, 0.1),
+    0 0 0 1px rgba(4, 99, 7, 0.18),
     0 30px 70px rgba(0, 0, 0, 0.9);
+
   width: 100%;
 }
 
 /* ---------------- IMAGE ---------------- */
+
 .our-team .picture {
   display: inline-block;
   height: 130px;
@@ -33,7 +39,9 @@
   width: 100%;
   height: 0;
   border-radius: 50%;
-  background: rgba(154, 168, 255, 0.65);
+
+  background: rgba(4, 99, 7, 0.7);
+
   position: absolute;
   bottom: 135%;
   left: 0;
@@ -51,7 +59,9 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: rgba(154, 168, 255, 0.25);
+
+  background: rgba(4, 99, 7, 0.25);
+
   position: absolute;
   top: 0;
   left: 0;
@@ -67,11 +77,12 @@
 }
 
 .our-team:hover .picture img {
-  box-shadow: 0 0 0 14px rgba(154, 168, 255, 0.25);
+  box-shadow: 0 0 0 14px rgba(4, 99, 7, 0.35);
   transform: scale(0.72);
 }
 
 /* ---------------- TEXT ---------------- */
+
 .our-team .name {
   color: #F9FAFB;
   font-size: 1.1rem;
@@ -82,17 +93,20 @@
 .our-team .title {
   display: block;
   font-size: 0.9rem;
-  color: #CBD5F5;
+  color: #CFEBDD;
   opacity: 0.85;
 }
 
 /* ---------------- SOCIAL ---------------- */
+
 .our-team .social {
   width: 100%;
   padding: 0;
   margin: 0;
-  background: rgba(154, 168, 255, 0.15);
+
+  background: rgba(4, 99, 7, 0.18);
   backdrop-filter: blur(10px);
+
   position: absolute;
   bottom: -100px;
   left: 0;
@@ -118,10 +132,11 @@
 
 .our-team .social li a:hover {
   color: #020308;
-  background-color: #9AA8FF;
+  background-color: #2EE06B;
 }
 
 /* ---------------- LAYOUT ---------------- */
+
 .container {
   display: flex;
   justify-content: center;
@@ -130,6 +145,7 @@
 }
 
 /* ---------------- RESPONSIVE ---------------- */
+
 @media (max-width: 991px) {
   .our-team {
     margin-bottom: 20px;

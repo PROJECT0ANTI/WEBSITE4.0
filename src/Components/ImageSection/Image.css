@@ -11,7 +11,7 @@
 /* ---------------- PROJECTS ---------------- */
 .projects {
   text-align: center;
-  background: transparent; /* allow animation behind */
+  background: transparent;
   color: #F9FAFB;
 }
 
@@ -22,23 +22,37 @@
   align-items: center;
   justify-content: space-between;
 
-  margin: 48px auto; /* 🔧 controls gap between sections */
+  margin: 48px auto;
   max-width: 72rem;
   padding: 1.5rem;
 
   border-radius: 1.25rem;
 
-  /* 🔧 transparent glass look */
-  background: rgba(2, 3, 8, 0.45);
-  backdrop-filter: blur(8px);
+  /* premium glass */
+  background: rgba(2, 3, 8, 0.55);
+  backdrop-filter: blur(10px);
 
-  border: 1px solid rgba(154, 168, 255, 0.16);
+  /* green as structure */
+  border: 1px solid rgba(4, 99, 7, 0.28);
 
   box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.75);
+    0 24px 60px rgba(0, 0, 0, 0.85);
 
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+}
+
+.image-container:hover {
+  border-color: rgba(46, 224, 107, 0.5);
+
+  box-shadow:
+    0 0 0 1px rgba(46, 224, 107, 0.22),
+    0 18px 48px rgba(46, 224, 107, 0.18),
+    0 45px 100px rgba(0, 0, 0, 1);
 }
 
 .image-container.reverse {
@@ -56,49 +70,47 @@
 .image-wrapper img {
   width: 100%;
   padding: 24px;
-  border-radius: 3rem;
+  border-radius: 2.5rem;
   opacity: 0;
   background: transparent;
 }
 
 /* ---------------- DESCRIPTION ---------------- */
 .description-wrapper {
-  box-sizing: border-box;
-
-  /* 🔧 more transparency so animation shows */
-  background: rgba(2, 3, 8, 0.35);
+  background: rgba(2, 3, 8, 0.45);
   backdrop-filter: blur(6px);
 
   padding: 1.25rem;
-  border-top-right-radius: 3rem;
+  border-top-right-radius: 2.5rem;
 
-  border: 1px solid rgba(154, 168, 255, 0.12);
+  border: 1px solid rgba(4, 99, 7, 0.22);
+
   opacity: 0;
 }
 
 .description-wrapper p {
   font-size: 1rem;
   line-height: 1.65;
-  color: #CBD5F5;
+  color: #B7E7C1;
 }
 
-/* ---------------- KEYWORDS (FIXED SPACING) ---------------- */
+/* ---------------- KEYWORDS ---------------- */
 .keywords {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 14px; /* ✅ space between keywords */
+  gap: 14px;
   margin: 16px 0 18px;
 }
 
 .keyword-item {
   font-size: 0.95rem;
-  color: #94A3B8;
+  color: #9FBFA8;
   white-space: nowrap;
 }
 
 .keyword-item a {
-  color: #9AA8FF;
+  color: #2EE06B;
   text-decoration: none;
 }
 
@@ -110,7 +122,7 @@
 .card-logo {
   text-align: center;
   font-size: 2rem;
-  color: #9AA8FF;
+  color: #2EE06B;
 }
 
 /* ---------------- RESPONSIVE ---------------- */
@@ -118,7 +130,7 @@
   .image-container {
     flex-direction: column;
     align-items: center;
-    margin: 36px auto; /* tighter on mobile */
+    margin: 36px auto;
   }
 
   .image-wrapper,

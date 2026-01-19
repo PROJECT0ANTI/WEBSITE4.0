@@ -22,27 +22,31 @@
 .career-card {
   background: radial-gradient(
     circle at top left,
-    #0B1220,
+    rgba(4, 99, 7, 0.18),
     #020617 65%,
     #020308 100%
   );
-  color: #CBD5F5;
+  color: #CFEBDD;
   border-radius: 20px;
   padding: 26px;
-  border: 1px solid rgba(154, 168, 255, 0.18);
+
+  border: 1px solid rgba(4, 99, 7, 0.35);
+
   box-shadow:
     0 30px 70px rgba(0, 0, 0, 0.9);
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .career-card:hover {
   transform: translateY(-8px);
   box-shadow:
-    0 0 0 1px rgba(154, 168, 255, 0.22),
-    0 0 40px rgba(154, 168, 255, 0.35),
+    0 0 0 1px rgba(4, 99, 7, 0.45),
+    0 0 40px rgba(46, 224, 107, 0.35),
     0 45px 100px rgba(0, 0, 0, 1);
 }
 
@@ -52,14 +56,14 @@
   font-weight: 700;
   margin-bottom: 16px;
   text-decoration: none;
-  color: #9AA8FF;
+  color: #2EE06B;
 }
 
 /* ---------------- TEXT ---------------- */
 .career-card p {
   margin: 6px 0;
   font-size: 0.95rem;
-  color: #CBD5F5;
+  color: #CFEBDD;
 }
 
 /* ---------------- BUTTON ---------------- */
@@ -67,24 +71,28 @@
   margin-top: 18px;
   padding: 14px;
   width: 100%;
+
   background: linear-gradient(
     135deg,
-    #9AA8FF,
-    #8293FF
+    #2EE06B,
+    #1FBF5A
   );
+
   color: #020308;
   border: none;
   border-radius: 12px;
   cursor: pointer;
+
   font-size: 1rem;
   font-weight: 600;
+
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .career-apply-btn:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 8px 30px rgba(154, 168, 255, 0.45);
+    0 8px 30px rgba(46, 224, 107, 0.45);
 }
 
 /* ---------------- ANIMATION ---------------- */
@@ -104,7 +112,7 @@
 .career-error {
   padding: 80px 6vw;
   text-align: center;
-  color: #CBD5F5;
+  color: #CFEBDD;
 }
 
 /* ---------------- RESPONSIVE ---------------- */

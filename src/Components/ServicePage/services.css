@@ -17,7 +17,7 @@
 .hero-sub {
   max-width: 760px;
   margin: 24px auto 0;
-  color: #CBD5F5;
+  color: #B7E7C1; /* muted green-grey */
   line-height: 1.7;
 }
 
@@ -30,29 +30,32 @@
 
 .section-sub {
   text-align: center;
-  color: #CBD5F5;
+  color: #B7E7C1;
   margin-bottom: 80px;
 }
 
-/* -------------------------------- GLOW CARD -------------------------------- */
+/* -------------------------------- CARD (PREMIUM, NO GRADIENT) -------------------------------- */
 .glow-card {
-  background: radial-gradient(
-    circle at top left,
-    #0B1220 0%,
-    #020617 60%,
-    #020308 100%
-  );
+  background: rgba(2, 3, 8, 0.65);
   border-radius: 20px;
-  border: 1px solid rgba(154, 168, 255, 0.18);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
-  transition: transform 0.45s ease, box-shadow 0.45s ease;
+
+  /* green used as structure, not fill */
+  border: 1px solid rgba(4, 99, 7, 0.28);
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.9);
+
+  transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
 }
 
 .glow-card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-10px);
+
+  border-color: rgba(46, 224, 107, 0.55);
+
   box-shadow:
-    0 0 0 1px rgba(154, 168, 255, 0.18),
-    0 0 40px rgba(154, 168, 255, 0.35),
+    0 0 0 1px rgba(46, 224, 107, 0.25),
+    0 18px 48px rgba(46, 224, 107, 0.18),
     0 45px 100px rgba(0, 0, 0, 1);
 }
 
@@ -79,24 +82,25 @@
 .category-btn {
   padding: 14px 18px;
   background: transparent;
-  color: #CBD5F5;
+  color: #B7E7C1;
   border-radius: 12px;
   border: 1px solid transparent;
   text-align: left;
   cursor: pointer;
-  transition: background 0.25s ease, color 0.25s ease;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 .category-btn:hover {
-  background: rgba(154, 168, 255, 0.08);
+  background: rgba(4, 99, 7, 0.12);
 }
 
 .category-btn.active {
-  background: rgba(154, 168, 255, 0.18);
+  background: rgba(4, 99, 7, 0.22);
+  border-color: rgba(46, 224, 107, 0.45);
   color: #ffffff;
-  border-color: rgba(154, 168, 255, 0.45);
 }
 
+/* -------------------------------- CONTENT -------------------------------- */
 .category-content {
   padding: 48px;
   display: flex;
@@ -118,7 +122,7 @@
 }
 
 .check {
-  color: #9AA8FF;
+  color: #2EE06B; /* accent only */
 }
 
 /* -------------------------------- PROCESS -------------------------------- */
@@ -140,7 +144,7 @@
 
 .process-num {
   font-size: 2.2rem;
-  color: #94A3B8;
+  color: rgba(183, 231, 193, 0.65);
   margin-bottom: 10px;
 }
 
@@ -187,7 +191,7 @@
 .link-text {
   margin-top: 18px;
   display: inline-block;
-  color: #9AA8FF;
+  color: #2EE06B;
 }
 
 /* -------------------------------- RESPONSIVE -------------------------------- */

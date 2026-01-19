@@ -160,25 +160,28 @@ const Contact = () => {
                 />
               </div>
 
-              <div className="form-footer">
-                <label className="privacy">
-                  <input
-                    type="checkbox"
-                    name="agreed"
-                    checked={formData.agreed}
-                    onChange={handleChange}
-                  />
-                  <span>
-                    I agree to the{" "}
-                    <a href="/privacy">Privacy Policy</a> and{" "}
-                    <a href="/terms">T&C</a>
-                  </span>
-                </label>
+<div className="form-footer">
+  <label className="privacy">
+    <input
+      type="checkbox"
+      name="agreed"
+      checked={formData.agreed}
+      onChange={handleChange}
+    />
+    <span>
+      I agree to the{" "}
+      <a href="/privacy">Privacy Policy</a> and{" "}
+      <a href="/terms">T&amp;C</a>
+    </span>
+  </label>
 
-                <button type="submit" className="send-btn">
-                  ( Send )
-                </button>
-              </div>
+  <div className="send-wrapper">
+    <button type="submit" className="send-btn">
+      ( Send )
+    </button>
+  </div>
+</div>
+
             </form>
           </div>
         </div>

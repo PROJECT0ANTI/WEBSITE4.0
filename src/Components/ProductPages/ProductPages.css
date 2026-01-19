@@ -2,17 +2,20 @@
   max-width: 900px;
   margin: 120px auto;
   padding: 0 24px;
-  color: #eaeaf0;
+  color: #EAF5EE; /* green-tinted neutral */
 }
 
 .product-page h1 {
   font-size: 3rem;
-  color: #9aa8ff;
+  color: #2EE06B;
   margin-bottom: 10px;
+
+  /* subtle brand glow */
+  text-shadow: 0 0 24px rgba(4, 99, 7, 0.35);
 }
 
 .product-subtitle {
-  color: #b8c0ff;
+  color: #A7E7BF;
   margin-bottom: 40px;
   font-size: 1.1rem;
 }
@@ -24,12 +27,12 @@
 .product-page h2 {
   font-size: 1.4rem;
   margin-bottom: 12px;
-  color: #f1f5ff;
+  color: #F3FFF8;
 }
 
 .product-page p {
   line-height: 1.7;
-  color: #cbd5f5;
+  color: #CFEBDD;
   margin-bottom: 14px;
 }
 
@@ -39,20 +42,32 @@
 
 .product-page li {
   margin-bottom: 10px;
-  color: #cbd5f5;
+  color: #CFEBDD;
 }
+
+/* =========================
+   CLOSE BUTTON
+========================= */
 
 .close-btn {
   margin-top: 60px;
   padding: 12px 28px;
   background: transparent;
-  border: 1px solid #9aa8ff;
-  color: #9aa8ff;
+
+  border: 1px solid rgba(4, 99, 7, 0.7);
+  color: #2EE06B;
+
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
+
+  transition: all 0.25s ease;
 }
 
 .close-btn:hover {
-  background: rgba(154, 168, 255, 0.1);
+  background: rgba(4, 99, 7, 0.12);
+
+  box-shadow:
+    0 0 0 1px rgba(4, 99, 7, 0.35),
+    0 10px 26px rgba(4, 99, 7, 0.35);
 }

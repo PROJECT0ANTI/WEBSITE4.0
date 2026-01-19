@@ -275,3 +275,30 @@
     padding: 48px;
   }
 }
+
+/* =========================
+   MOBILE FIX: Privacy + Send
+========================= */
+
+@media (max-width: 640px) {
+  .form-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .privacy {
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .send-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .send-btn {
+    font-size: 1.05rem;
+  }
+}

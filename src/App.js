@@ -35,6 +35,8 @@ import Enterprise from "./Components/ProductPages/Enterprise";
 // Policy pages
 import Privacy from "./Components/Policies/Privacy";
 import TnC from "./Components/Policies/T&C";
+import AppSupport from "./Components/Policies/AppSupport";
+
 
 function App() {
   return (
@@ -108,6 +110,8 @@ function App() {
                 {/* legal pages */}
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<TnC />} />
+                <Route path="/support" element={<AppSupport />} />
+
               </Routes>
 
               <Footer />
