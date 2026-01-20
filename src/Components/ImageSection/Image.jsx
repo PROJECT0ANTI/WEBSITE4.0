@@ -55,10 +55,10 @@ const Projects = () => {
   const projectData = [
     {
       imageUrl:
-        "https://cdn.pixabay.com/photo/2024/01/25/00/25/ai-8530787_1280.jpg",
+        "/static/Mobile_app_home.png",
       title: "ANTI-0 Mobile Application",
       description:
-        "A privacy-first mobile application designed to detect AI-generated, manipulated, and synthetic media. Built for real-world use with fast on-device intelligence and optional verification.",
+        "A privacy-first mobile application designed to detect AI-generated media. Built for real-world use with fast on-device intelligence and optional verification.",
       keywords: [
         "Deepfake Detection",
         "On-device AI",
@@ -77,7 +77,7 @@ const Projects = () => {
     {
       imageUrl:
         "https://cdn.pixabay.com/photo/2019/08/06/22/48/artificial-intelligence-4389372_1280.jpg",
-      title: "ANTI-AI Enterprise Solution",
+      title: "ANTI-AI Enterprise Product",
       description:
         "An enterprise-grade security platform built to predict threats, enforce governed AI decisions, and protect modern cloud infrastructure before attacks occur.",
       keywords: [
