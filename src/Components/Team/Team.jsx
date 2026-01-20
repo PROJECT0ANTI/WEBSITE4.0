@@ -2,83 +2,98 @@
 // import "./Team.css";
 // import { motion } from "framer-motion";
 
+// /* DATA */
 // const TEAM = [
-//   {
-//     name: "Vishal Arya",
-//     role: "Founder & CEO",
-//     image: "",
-//   },
-//   {
-//     name: "Priya Singh",
-//     role: "CTO",
-//     image: "",
-//   },
-//   {
-//     name: "Arjun Patel",
-//     role: "Head of Research",
-//     image: "",
-//   },
-//   {
-//     name: "Meera Sharma",
-//     role: "Product Lead",
-//     image: "",
-//   },
-//   {
-//     name: "Rohit Kumar",
-//     role: "Infrastructure Engineer",
-//     image: "",
-//   },
-//   {
-//     name: "Aisha Khan",
-//     role: "Security Specialist",
-//     image: "",
-//   },
+//   { name: "Tanishq Sharma", role: "Founder & CEO" },
+//   { name: "Divya Sharma", role: "Chief Manager" },
+//   { name: "Arpit Dogra", role: "Chief Technical Officer" },
+//   { name: "Sharad Pandey", role: "Business Development Manager" },
+//   { name: "Kunal Saxena", role: "Technical Lead" },
+//   { name: "Vishal Purohit", role: "Head of Marketing" },
+//   { name: "Tanmay Saboo", role: "Chief of Staff" },
+//   { name: "Parth Mehta", role: "AI/ML Developer Engineer" },
 // ];
 
-// /* Motion variants */
-// const pageFade = {
-//   hidden: { opacity: 0 },
-//   visible: { opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
-// };
+// /* MAGNET HOOK */
+// function useMagnet(strength = 0.12) {
+//   const ref = React.useRef(null);
 
-// const introSlide = {
-//   hidden: { y: 24, opacity: 0 },
-//   visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
-// };
+//   React.useEffect(() => {
+//     const el = ref.current;
+//     if (!el) return;
 
-// const gridStagger = {
-//   hidden: {},
+//     const move = (e) => {
+//       const r = el.getBoundingClientRect();
+//       const x = e.clientX - r.left - r.width / 2;
+//       const y = e.clientY - r.top - r.height / 2;
+//       el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+//     };
+
+//     const reset = () => {
+//       el.style.transform = "translate(0,0)";
+//     };
+
+//     el.addEventListener("mousemove", move);
+//     el.addEventListener("mouseleave", reset);
+
+//     return () => {
+//       el.removeEventListener("mousemove", move);
+//       el.removeEventListener("mouseleave", reset);
+//     };
+//   }, [strength]);
+
+//   return ref;
+// }
+
+// /* MOTION */
+// const cardVariant = {
+//   hidden: (i) => ({
+//     opacity: 0,
+//     x: i % 2 === 0 ? -30 : 30,
+//     y: 30,
+//   }),
 //   visible: {
-//     transition: {
-//       staggerChildren: 0.08,
-//     },
-//   },
-// };
-
-// const cardFade = {
-//   hidden: { y: 18, opacity: 0 },
-//   visible: {
-//     y: 0,
 //     opacity: 1,
-//     transition: { duration: 0.4, ease: "easeOut" },
+//     x: 0,
+//     y: 0,
+//     transition: { duration: 0.55, ease: "easeOut" },
 //   },
 // };
 
+// /* CARD COMPONENT */
+// function TeamCard({ member, index }) {
+//   const magnetRef = useMagnet();
+
+//   return (
+//     <motion.div
+//       ref={magnetRef}
+//       className={`team-card ${index < 2 ? "team-card--featured" : ""}`}
+//       variants={cardVariant}
+//       initial="hidden"
+//       whileInView="visible"
+//       viewport={{ once: true }}
+//       custom={index}
+//     >
+//       <div className="team-image">
+//         <div className="image-placeholder" />
+//       </div>
+
+//       <div className="team-meta">
+//         <a href="/" className="team-name">
+//           {member.name}
+//         </a>
+//         <p>{member.role}</p>
+//       </div>
+//     </motion.div>
+//   );
+// }
+
+// /* PAGE */
 // export default function Team() {
 //   return (
-//     <motion.section
-//       className="team-page"
-//       variants={pageFade}
-//       initial="hidden"
-//       animate="visible"
-//     >
-//       {/* LEFT PANEL */}
-//       <motion.aside
-//         className="team-intro"
-//         variants={introSlide}
-//         initial="hidden"
-//         animate="visible"
-//       >
+//     <section className="team-page">
+//       {/* INTRO */}
+//       <aside className="team-intro">
 //         <h1>Meet our team</h1>
 //         <p>
 //           A focused group of engineers, researchers, and builders working at the
@@ -91,40 +106,18 @@
 //           <span>Security</span>
 //           <span>Leadership</span>
 //         </div>
-//       </motion.aside>
+//       </aside>
 
-//       {/* RIGHT PANEL */}
-//       <motion.div
-//         className="team-grid"
-//         variants={gridStagger}
-//         initial="hidden"
-//         whileInView="visible"
-//         viewport={{ once: true }}
-//       >
-//         {TEAM.map((member) => (
-//           <motion.div
-//             key={member.name}
-//             className="team-card"
-//             variants={cardFade}
-//           >
-//             <div className="team-image">
-//               {member.image ? (
-//                 <img src={member.image} alt={member.name} />
-//               ) : (
-//                 <div className="image-placeholder" />
-//               )}
-//             </div>
-
-//             <div className="team-meta">
-//               <h3>{member.name}</h3>
-//               <p>{member.role}</p>
-//             </div>
-//           </motion.div>
+//       {/* GRID */}
+//       <div className="team-grid">
+//         {TEAM.map((member, i) => (
+//           <TeamCard key={member.name} member={member} index={i} />
 //         ))}
-//       </motion.div>
-//     </motion.section>
+//       </div>
+//     </section>
 //   );
 // }
+
 
 import React from "react";
 import "./Team.css";
@@ -132,12 +125,66 @@ import { motion } from "framer-motion";
 
 /* DATA */
 const TEAM = [
-  { name: "Vishal Arya", role: "Founder & CEO" },
-  { name: "Priya Singh", role: "CTO" },
-  { name: "Arjun Patel", role: "Head of Research" },
-  { name: "Meera Sharma", role: "Product Lead" },
-  { name: "Rohit Kumar", role: "Infrastructure Engineer" },
-  { name: "Aisha Khan", role: "Security Specialist" },
+  {
+    name: "Tanishq Sharma",
+    role: "Founder & CEO",
+    image: "/static/tanishq-sharma.jpg",
+    linkedin: "/",
+  },
+  {
+    name: "Divya Sharma",
+    role: "Chief Manager",
+    image: "/static/divya-sharma.jpg",
+    linkedin: "/",
+  },
+  {
+    name: "Arpit Dogra",
+    role: "Chief Technical Officer",
+    image: "/static/arpit_dogra.png",
+    linkedin: "/",
+  },
+  {
+    name: "Kunal Saxena",
+    role: "Technical Lead",
+    image: "/static/kunal_saxena.jpeg",
+    linkedin: "/",
+  },
+  {
+    name: "Sharad Pandey",
+    role: "Business Development Manager",
+    image: "/static/sharad_pandey.png",
+    linkedin: "/",
+  },
+  {
+    name: "Vishal Purohit",
+    role: "Head of Marketing",
+    image: "/static/vishal_purohit.PNG",
+    linkedin: "/",
+  },
+  {
+    name: "Tanmay Saboo",
+    role: "Chief of Staff",
+    image: "/static/tanmay_saboo.png",
+    linkedin: "/",
+  },
+  {
+    name: "Shristi Shukla",
+    role: "Senior Softwar Developer",
+    image: "/static/shristi_shukla.png",
+    linkedin: "/",
+  },
+  {
+    name: "Parth Mehta",
+    role: "AI/ML Developer Engineer",
+    image: "/static/parth_mehta.png",
+    linkedin: "/",
+  },
+  {
+    name: "Sanjay",
+    role: "Business Development Executive",
+    image: "/static/sanjay.png",
+    linkedin: "/",
+  },
 ];
 
 /* MAGNET HOOK */
@@ -201,11 +248,20 @@ function TeamCard({ member, index }) {
       custom={index}
     >
       <div className="team-image">
-        <div className="image-placeholder" />
+        <img
+          src={member.image}
+          alt={member.name}
+          loading="lazy"
+        />
       </div>
 
       <div className="team-meta">
-        <a href="/" className="team-name">
+        <a
+          href={member.linkedin}
+          className="team-name"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {member.name}
         </a>
         <p>{member.role}</p>
