@@ -17,33 +17,40 @@
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(10px);
 
-  /* green glow + depth */
+  /* deeper black depth + richer green glow */
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.85),
-    0 0 35px rgba(4, 96, 40, 0.35),
-    inset 0 0 0 1px rgba(4, 96, 40, 0.35);
+    0 50px 120px rgba(0, 0, 0, 0.95),          /* main depth */
+    0 0 60px rgba(4, 96, 40, 0.28),            /* outer green glow (lower, wider) */
+    inset 0 0 0 1px rgba(4, 96, 40, 0.32),     /* subtle edge definition */
+    inset 0 8px 18px rgba(0, 0, 0, 0.6);       /* inner depth */
 
   animation: heroFadeUp 0.9s ease forwards;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 /* slight pop on hover */
-.about-hero-card:hover {
+/* slight pop on hover */ 
+.about-hero-card:hover { 
   transform: translateY(-6px);
-  box-shadow:
-    0 40px 90px rgba(0, 0, 0, 0.9),
-    0 0 50px rgba(4, 96, 40, 0.55);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9), 
+  0 0 50px rgba(4, 96, 40, 0.55); 
 }
+
 
 /* kicker */
 .about-hero-kicker {
-  font-size: 0.75rem;
-  letter-spacing: 0.35em;
+  font-size: 1rem;              /* was 0.75rem */
+  letter-spacing: 0.28em;         /* tighter, more premium */
   text-transform: uppercase;
-  margin-bottom: 20px;
-  color: #046028;
-  opacity: 0.9;
+  margin-bottom: 22px;
+
+  color: #1f6f2b;
+  opacity: 1;
+
+  text-shadow:
+    0 0 12px rgba(4, 96, 40, 0.35);
 }
+
 
 /* title */
 .about-hero-title {
@@ -52,15 +59,16 @@
   font-weight: 700;
   margin-bottom: 28px;
   color: #ffffff;
+  opacity: 0.9;
 }
 
 /* description */
 .about-hero-desc {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.8;
   max-width: 720px;
-  color: #CBD5F5;
-  opacity: 0.95;
+  color: #ffffff;
+  opacity: 0.7;
 }
 
 /* ================= HERO ANIMATION ================= */
@@ -99,22 +107,22 @@
   gap: 18px;
   font-size: 1rem;
   line-height: 1.8;
-  color: #CBD5F5;
-  opacity: 0.95;
+  color: #ffffff;
+  opacity: 0.9;
 }
 
 .about-intro-heading {
   font-size: 2.1rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #1f6f2b;
 }
 
 .about-intro-motto {
   margin: 24px 0;
   text-align: center;
-  font-size: 1.1rem;
-  color: #046028;
-  opacity: 0.9;
+  font-size: 1.5rem;
+  color: #1f6f2b;
+  opacity: 1;
 }
 
 /* ================= FOCUS CARD ================= */
@@ -140,38 +148,35 @@
     0 0 50px rgba(4,96,40,0.55);
 }
 
-/* ================= (REST OF FILE CONTINUES UNCHANGED) ================= */
-
-
 .about-focus-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
   margin-bottom: 14px;
 
-  color: #046028; /* premium brand green */
-  opacity: 0.9;
+  color: #1f6f2b; /* premium brand green */
+  opacity: 1;
 }
 
 .about-focus-text {
   font-size: 0.95rem;
   line-height: 1.7;
   margin-bottom: 22px;
-
-  color: #CBD5F5;
+  opacity: 0.9;
+  color: #ffffff;
 }
 
 .about-focus-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  color:#ffffff;
 }
 
 .about-focus-chips span {
   padding: 6px 14px;
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   border-radius: 999px;
-
-  color: #ffffff;
+  color: #1f6f2b;
   background: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(4, 96, 40, 0.45); /* refined green border */
 }
@@ -222,24 +227,24 @@
   font-size: 1rem;
   line-height: 1.8;
 
-  color: #CBD5F5;
-  opacity: 0.95;
+  color: #ffffff;
+  opacity: 1;
 }
 
 .about-genesis-kicker {
-  font-size: 0.75rem;
-  letter-spacing: 0.35em;
+  font-size: 1.3rem;
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
 
-  color: #046028; /* premium brand green */
-  opacity: 0.9;
+  color: #1f6f2b; /* premium brand green */
+  opacity: 1;
 }
 
 .about-genesis-heading {
   font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 8px;
-
+  opacity: 0.9;
   color: #ffffff;
 }
 
@@ -272,11 +277,11 @@
 }
 
 .about-footprint-title {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 14px;
 
-  color: #ffffff;
+  color: #1f6f2b;
 }
 
 .about-footprint-text {
@@ -284,7 +289,7 @@
   line-height: 1.7;
   margin-bottom: 28px;
 
-  color: #CBD5F5;
+  color: #ffffff;
   opacity: 0.95;
 }
 
@@ -298,12 +303,12 @@
   font-size: 2.6rem;
   font-weight: 700;
 
-  color: #046028; /* premium metric green */
+  color: #1f6f2b; /* premium metric green */
 }
 
 .metric-label {
   font-size: 0.9rem;
-  color: #E5E7EB;
+  color: #ffffff;
   opacity: 0.8;
 }
 
@@ -311,7 +316,7 @@
   margin-top: 12px;
   font-size: 0.85rem;
 
-  color: #CBD5F5;
+  color: #ffffff;
   opacity: 0.7;
 }
 
@@ -353,7 +358,7 @@
   text-align: center;
   letter-spacing: 0.02em;
 
-  color: #ffffff;
+  color: #1f6f2b;
 
   animation: principlesFadeUp 0.8s ease forwards;
 }
@@ -382,7 +387,7 @@
     0 0 35px rgba(4, 96, 40, 0.25),
     inset 0 0 0 1px rgba(4, 96, 40, 0.22);
 
-  color: #CBD5F5;
+  color: #ffffff;
 
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   animation: principlesFadeUp 0.9s ease forwards;
@@ -400,15 +405,16 @@
   font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 14px;
-
-  color: #ffffff;
+  text-align: center;
+  color: #1f6f2b;
+  text-transform: uppercase;
 }
 
 .about-principle-card p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.75;
 
-  color: #CBD5F5;
+  color: #ffffff;
   opacity: 0.95;
 }
 
@@ -550,12 +556,12 @@
 .about-cta p {
   font-size: 1rem;
   line-height: 1.7;
-  color: #CBD5F5;
+  color: #ffffff;
   margin-bottom: 36px;
 }
 
 .about-cta p span {
-  color: #046307;
+  color: #1f6f2b;
 }
 
 .about-cta-btn {

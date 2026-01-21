@@ -148,27 +148,171 @@
   margin-bottom: 10px;
 }
 
-/* -------------------------------- STORIES -------------------------------- */
+/* ================= SUCCESS STORIES ================= */
+
 .stories-section {
-  padding: 140px 8vw;
+  padding: 140px 0; /* full-width section */
+  position: relative;
 }
 
-.stories-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 36px;
+/* ---------------- HEADING ---------------- */
+
+.stories-header {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto 80px;
+  padding: 0 8vw;
+  text-align: center;
 }
+
+.stories-header h2 {
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.stories-header p {
+  font-size: 1.05rem;
+  color: #CBD5F5;
+  opacity: 0.9;
+}
+
+/* ---------------- MARQUEE WRAPPER ---------------- */
+
+.stories-marquee {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: visible; /* 🔧 FIX: allow hover lift */
+  position: relative;
+  padding-top: 20px; /* breathing room for lifted cards */
+}
+/* Pause scroll when hovering anywhere on the marquee */
+.stories-marquee:hover .stories-track {
+  animation-play-state: paused;
+  transition: animation-play-state 0.3s ease;
+}
+/* ---------------- SCROLL TRACK ---------------- */
+
+.stories-track {
+  display: flex;
+  gap: 36px;
+  width: max-content;
+
+  padding-left: 8vw;   /* align with site grid */
+  padding-right: 8vw;
+
+  animation: stories-scroll 45s linear infinite;
+}
+
+/* ---------------- CARD ---------------- */
 
 .story-card {
-  padding: 40px;
+  min-width: 340px;
+  max-width: 360px;
+  padding: 36px 34px;
+  border-radius: 22px;
+
+  background: radial-gradient(
+    circle at top left,
+    rgba(8, 20, 14, 0.9),
+    rgba(2, 3, 8, 0.95)
+  );
+
+  border: 1px solid rgba(4, 96, 40, 0.35);
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.85),
+    inset 0 0 0 1px rgba(4, 96, 40, 0.25);
+
+  color: #CBD5F5;
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  will-change: transform;
+  position: relative;
+  z-index: 1;
 }
+
+/* hover lift */
+.story-card:hover {
+  transform: translateY(-12px);
+  box-shadow:
+    0 40px 90px rgba(0, 0, 0, 0.95),
+    0 0 45px rgba(4, 96, 40, 0.45);
+  z-index: 1;
+}
+
+/* ---------------- CARD CONTENT ---------------- */
+
+.story-card h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.story-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 26px;
+  opacity: 0.95;
+}
+
+/* ---------------- METRICS ---------------- */
 
 .metrics {
   display: flex;
-  gap: 40px;
-  margin-top: 24px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.metrics span {
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  border-radius: 999px;
+
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(4, 96, 40, 0.45);
+}
+
+/* ---------------- ANIMATION ---------------- */
+
+@keyframes stories-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 900px) {
+  .stories-track {
+    animation-duration: 60s;
+  }
+
+  .story-card {
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .stories-track {
+    animation: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 0 6vw;
+  }
+
+  .stories-marquee {
+    overflow: visible;
+  }
+
+  .story-card {
+    max-width: 100%;
+  }
 }
 
 /* -------------------------------- PORTFOLIO -------------------------------- */
@@ -215,5 +359,144 @@
 
   .services-hero {
     padding: 110px 6vw 80px;
+  }
+}
+
+/* ================= USP SECTION ================= */
+
+.usp-section {
+  padding: 140px 8vw;
+  background: #020308;
+}
+
+.usp-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------------- HEADING ---------------- */
+
+.usp-title {
+  font-size: clamp(2.2rem, 3vw, 2.7rem);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 18px;
+  color: #ffffff;
+}
+
+.usp-sub {
+  max-width: 720px;
+  margin: 0 auto 72px; /* critical spacing fix */
+  text-align: center;
+  color: #CBD5F5;
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+/* ================= USP FLIP CARDS ================= */
+
+.usp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+}
+
+/* Card wrapper */
+.usp-item {
+  perspective: 1200px;
+}
+
+/* Inner flip container */
+.usp-item-inner {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease;
+}
+
+/* Flip on hover (desktop only) */
+@media (hover: hover) {
+  .usp-item:hover .usp-item-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* ---------------- FRONT + BACK (shared) ---------------- */
+
+.usp-front,
+.usp-back {
+  position: absolute;
+  inset: 0;
+  padding: 28px 26px;
+  border-radius: 18px;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(4, 96, 40, 0.35);
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.85),
+    inset 0 0 0 1px rgba(4, 96, 40, 0.25);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ---------------- FRONT ---------------- */
+
+.usp-front h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2e8624;
+  letter-spacing: 0.02em;
+}
+
+/* ---------------- BACK ---------------- */
+
+.usp-back {
+  transform: rotateY(180deg);
+}
+
+.usp-back p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #CBD5F5;
+  opacity: 0.95;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .usp-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .usp-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Disable flip on mobile */
+  .usp-item-inner {
+    transform: none !important;
+  }
+
+  .usp-front,
+  .usp-back {
+    position: relative;
+    transform: none;
+  }
+
+  .usp-back {
+    margin-top: 12px;
   }
 }

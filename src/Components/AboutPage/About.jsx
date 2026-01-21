@@ -10,14 +10,14 @@ const About = () => {
           <p className="about-hero-kicker">ABOUT US</p>
 
           <h1 className="about-hero-title">
-            We are building safe and smart
-            <br />
-            solutions against AGI.
+            We are building robust security products 
+            
+            to protect against AGI.
           </h1>
 
           <p className="about-hero-desc">
-            Anti AI is an AI research and development company focused on
-            anticipating and mitigating risks posed by artificial general
+            ANTI.AI is an AI security and product development company focused on
+            anticipating and mitigating risks posed by artificial
             intelligence before they materialize.
           </p>
         </div>
@@ -44,12 +44,11 @@ const About = () => {
               compromising control.
             </p>
 
-            <p className="about-intro-motto">अन्ते सत्यं विजयते।</p>
-
             <p>
               We are always looking for driven individuals who believe in this
               mission and want to build responsibly at the edge of technology.
             </p>
+            <p className="about-intro-motto">अन्ते सत्यं विजयते।</p>
           </div>
 
           {/* RIGHT CARD */}
@@ -127,28 +126,24 @@ const About = () => {
 
   <div className="about-principles-grid">
     <div className="about-principle-card">
-      <h3>Human Control</h3>
+      <h3>OUR VISION</h3>
       <p>
-        AI systems must remain subordinate to human decision-making and
-        oversight at all times. We design systems that respect authority,
-        accountability, and intervention.
+        At ANTI.AI, our vision is to redefine technology, defense mechanisms and development through Anti-AI Softwares that work for the betterment of mankind. 
       </p>
     </div>
 
     <div className="about-principle-card">
-      <h3>Predictive Thinking</h3>
+      <h3>Ethical Integrity</h3>
       <p>
-        We focus on anticipating risks early rather than reacting after
-        damage occurs. Prevention, foresight, and long-term reasoning guide
-        every system we build.
+        We prioritize transparency and accountability in every product we develop.
+        By ensuring AI aligns with human values, we create technology that respects privacy, maintains autonomy, and serves the greater good.
       </p>
     </div>
 
     <div className="about-principle-card">
-      <h3>Responsible Scale</h3>
+      <h3>OUR MISSION</h3>
       <p>
-        Innovation should scale with governance, transparency, and
-        accountability built-in. Growth without control is not progress.
+        To protect and empower by strategically managing the infiltration of artificial intelligence. We believe that AI should be harnessed responsibly for the betterment of humanity and society. 
       </p>
     </div>
   </div>
@@ -162,18 +157,18 @@ const About = () => {
 
     <div className="about-strength-grid">
       <div className="strength-card">
-        <h3>3K+</h3>
+        <h3>32+</h3>
         <p>Certified Professionals</p>
       </div>
 
       <div className="strength-card">
-        <h3>15+</h3>
-        <p>Years of Excellence</p>
+        <h3>89+</h3>
+        <p>Total Products</p>
       </div>
 
       <div className="strength-card">
-        <h3>50+</h3>
-        <p>Fortune 500 Clients</p>
+        <h3>30+</h3>
+        <p>Partners</p>
       </div>
 
       <div className="strength-card">
