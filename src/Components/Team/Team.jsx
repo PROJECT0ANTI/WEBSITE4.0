@@ -7,26 +7,14 @@ const TEAM = [
   {
     name: "Tanishq Sharma",
     role: "Founder & CEO",
-    image: "/static/tanishq-sharma.jpg",
-    linkedin: "/",
+    image: "/static/tanishq_sir.jpg",
+    linkedin: "https://www.linkedin.com/in/tanishq-shr",
   },
   {
     name: "Divya Sharma",
     role: "Chief Manager",
-    image: "/static/divya-sharma.jpg",
-    linkedin: "/",
-  },
-  {
-    name: "Arpit Dogra",
-    role: "Chief Technical Officer",
-    image: "/static/arpit_dogra.png",
-    linkedin: "/",
-  },
-  {
-    name: "Kunal Saxena",
-    role: "Technical Lead",
-    image: "/static/kunal_saxena.jpeg",
-    linkedin: "/",
+    image: "/static/divya_maam.png",
+    linkedin: "https://www.linkedin.com/in/divya-sharma-7297822aa",
   },
   {
     name: "Sharad Pandey",
@@ -35,16 +23,34 @@ const TEAM = [
     linkedin: "/",
   },
   {
+    name: "Arpit Dogra",
+    role: "Chief Technical Officer",
+    image: "/static/arpit_dogra.png",
+    linkedin: "https://www.linkedin.com/in/arpit-dogra18",
+  },
+  {
+    name: "Kunal Saxena",
+    role: "Technical Lead",
+    image: "/static/kunal_saxena.jpeg",
+    linkedin: "https://www.linkedin.com/in/kunal-saxena-ks",
+  },
+  {
     name: "Vishal Purohit",
     role: "Head of Marketing",
     image: "/static/vishal_purohit.PNG",
-    linkedin: "/",
+    linkedin: "https://www.linkedin.com/in/vishal-purohit-35338b218",
   },
   {
     name: "Tanmay Saboo",
     role: "Chief of Staff",
-    image: "/static/tanmay_saboo.png",
-    linkedin: "/",
+    image: "/static/tanmay_saboo.jpeg",
+    linkedin: "https://www.linkedin.com/in/tanmay-saboo",
+  },
+  {
+    name: "Parth Mehta",
+    role: "AI/ML Developer Engineer",
+    image: "/static/parth_mehta.png",
+    linkedin: "https://www.linkedin.com/in/parth-mehta-abc1999",
   },
   {
     name: "Shristi Shukla",
@@ -53,16 +59,16 @@ const TEAM = [
     linkedin: "/",
   },
   {
-    name: "Parth Mehta",
-    role: "AI/ML Developer Engineer",
-    image: "/static/parth_mehta.png",
-    linkedin: "/",
-  },
-  {
-    name: "Sanjay",
+    name: "Sanjay Thakur",
     role: "Business Development Executive",
     image: "/static/sanjay.png",
-    linkedin: "/",
+    linkedin: "https://www.linkedin.com/in/sanjaysingh-thakur",
+  },
+  {
+    name: "Shishpal Singh",
+    role: "Business Development Executive",
+    image: "/static/shispal.png",
+    linkedin: "https://www.linkedin.com/in/shishpal-singh-a084b3109",
   },
 ];
 

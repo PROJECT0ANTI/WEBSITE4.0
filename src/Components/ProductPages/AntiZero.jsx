@@ -30,10 +30,10 @@ const AntiZero = () => {
       <section>
         <h2>Core Capabilities</h2>
         <ul>
-          <li>Detection of deepfake and AI-generated video content</li>
-          <li>Analysis of manipulated and synthetic media</li>
-          <li>On-device inference for privacy-preserving detection</li>
-          <li>Optional verification workflows for higher-risk content</li>
+          <li>1. Detection of deepfake and AI-generated video content</li>
+          <li>2. Analysis of manipulated and synthetic media</li>
+          <li>3. On-device inference for privacy-preserving detection</li>
+          <li>4. Optional verification workflows for higher-risk content</li>
         </ul>
       </section>
 

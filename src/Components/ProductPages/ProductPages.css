@@ -2,22 +2,28 @@
   max-width: 900px;
   margin: 120px auto;
   padding: 0 24px;
-  color: #EAF5EE; /* green-tinted neutral */
+  color: #ffffff; /* green-tinted neutral */
 }
 
 .product-page h1 {
   font-size: 3rem;
-  color: #2EE06B;
-  margin-bottom: 10px;
+  color: #1f6f2b;
+  margin-bottom: 15px;
+  text-align: center;
+
 
   /* subtle brand glow */
   text-shadow: 0 0 24px rgba(4, 99, 7, 0.35);
 }
 
 .product-subtitle {
-  color: #A7E7BF;
+  color: #ffffff;
   margin-bottom: 40px;
   font-size: 1.1rem;
+}
+
+.product-subtitle h2{
+  color: #1f6f2b;
 }
 
 .product-page section {
@@ -27,12 +33,12 @@
 .product-page h2 {
   font-size: 1.4rem;
   margin-bottom: 12px;
-  color: #F3FFF8;
+  color: #1f6f2b;
 }
 
 .product-page p {
   line-height: 1.7;
-  color: #CFEBDD;
+  color: #ffffff;
   margin-bottom: 14px;
 }
 
@@ -42,7 +48,7 @@
 
 .product-page li {
   margin-bottom: 10px;
-  color: #CFEBDD;
+  color: #ffffff;
 }
 
 /* =========================
@@ -55,7 +61,7 @@
   background: transparent;
 
   border: 1px solid rgba(4, 99, 7, 0.7);
-  color: #2EE06B;
+  color: #1f6f2b;
 
   border-radius: 8px;
   cursor: pointer;

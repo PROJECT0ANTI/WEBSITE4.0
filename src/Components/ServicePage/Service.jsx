@@ -119,7 +119,7 @@ const [activeCategory, setActiveCategory] = useState(categoryKeys[0]);
       {/* ================= USP SECTION ================= */}
       <section className="usp-section">
         <div className="usp-inner">
-          <h2 className="usp-title">Why teams choose ANTI.AI</h2>
+          <h2 className="usp-title">Why teams choose us?</h2>
           <p className="usp-sub">
             Our approach is built around speed, intelligence, and radical clarity
              without compromising quality.
@@ -177,7 +177,7 @@ const [activeCategory, setActiveCategory] = useState(categoryKeys[0]);
                 <div className="usp-back">
                   <p>
                     Clients have full visibility into progress, decisions, and
-                    technical direction — no black boxes, ever.
+                    technical direction <br /> No black boxes, ever.
                   </p>
                 </div>
               </div>

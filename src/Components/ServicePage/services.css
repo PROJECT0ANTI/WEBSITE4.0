@@ -17,8 +17,9 @@
 .hero-sub {
   max-width: 760px;
   margin: 24px auto 0;
-  color: #B7E7C1; /* muted green-grey */
+  color: #1f6f2b; /* muted green-grey */
   line-height: 1.7;
+  font-size: larger;
 }
 
 /* -------------------------------- SHARED -------------------------------- */
@@ -64,6 +65,11 @@
   padding: 140px 8vw;
 }
 
+.section-sub{
+    color: #1f6f2b;
+    font-size: larger;
+}
+
 .categories-layout {
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -82,7 +88,7 @@
 .category-btn {
   padding: 14px 18px;
   background: transparent;
-  color: #B7E7C1;
+  color: #1f6f2b;
   border-radius: 12px;
   border: 1px solid transparent;
   text-align: left;
@@ -108,6 +114,17 @@
   justify-content: space-between;
 }
 
+.category-content h3{
+    color: #1f6f2b;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: larger;
+}
+
+.category-content p{
+    text-align: center;
+}
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -130,6 +147,17 @@
   padding: 140px 8vw;
 }
 
+.process-card h4 {
+  text-align: center;
+  color: #1f6f2b;
+  margin-bottom: 12px;
+  font-size: larger;
+}
+
+.process-card .process-num {
+    color: #1f6f2b;
+}
+
 .process-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -140,6 +168,10 @@
 
 .process-card {
   padding: 40px;
+}
+
+.process-card p{
+    text-align: center;
 }
 
 .process-num {
@@ -173,9 +205,10 @@
 
 .stories-header p {
   font-size: 1.05rem;
-  color: #CBD5F5;
+  color: #ffffff;
   opacity: 0.9;
 }
+
 
 /* ---------------- MARQUEE WRAPPER ---------------- */
 
@@ -223,12 +256,16 @@
     0 22px 55px rgba(0, 0, 0, 0.85),
     inset 0 0 0 1px rgba(4, 96, 40, 0.25);
 
-  color: #CBD5F5;
+  color: #ffffff;
 
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   will-change: transform;
   position: relative;
   z-index: 1;
+}
+
+.stories-track  .story-card h4{
+    color: #1f6f2b;
 }
 
 /* hover lift */
@@ -332,6 +369,22 @@
   padding: 36px;
 }
 
+.section-sub{
+    color: #1f6f2b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.portfolio-grid h4{
+    color: #1f6f2b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.portfolio-grid p{
+    text-align: center;
+}
+
 .link-text {
   margin-top: 18px;
   display: inline-block;
@@ -388,9 +441,10 @@
   max-width: 720px;
   margin: 0 auto 72px; /* critical spacing fix */
   text-align: center;
-  color: #CBD5F5;
+  color: #1f6f2b;
   line-height: 1.7;
-  opacity: 0.95;
+  opacity: 1;
+  font-size: larger;
 }
 
 /* ================= USP FLIP CARDS ================= */
@@ -453,7 +507,7 @@
 .usp-front h3 {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #2e8624;
+  color: #1f6f2b;
   letter-spacing: 0.02em;
 }
 
@@ -466,7 +520,7 @@
 .usp-back p {
   font-size: 0.95rem;
   line-height: 1.7;
-  color: #CBD5F5;
+  color: #ffffff;
   opacity: 0.95;
 }
 

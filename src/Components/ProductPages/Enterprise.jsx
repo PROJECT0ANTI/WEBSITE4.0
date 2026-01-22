@@ -7,7 +7,7 @@ const Enterprise = () => {
 
   return (
     <section className="product-page">
-      <h1>ANTI AI Enterprise</h1>
+      <h1>ANTI-AI Shield</h1>
       <p className="product-subtitle">
         Predictive, governed AI security for modern infrastructure
       </p>
@@ -15,7 +15,7 @@ const Enterprise = () => {
       <section>
         <h2>What the Platform Is</h2>
         <p>
-          ANTI AI Enterprise is a security and intelligence platform designed
+          ANTI-AI Shield is a security and intelligence platform designed
           for organizations operating complex, cloud-native, and distributed
           systems. It focuses on anticipating threats rather than reacting
           after damage has already occurred.
@@ -30,17 +30,17 @@ const Enterprise = () => {
       <section>
         <h2>Core Capabilities</h2>
         <ul>
-          <li>Predictive threat and vulnerability forecasting</li>
-          <li>Automated security policy generation</li>
-          <li>Multi-agent decision orchestration with human control</li>
-          <li>Enterprise-grade governance, logging, and auditability</li>
+          <li>1. Predictive threat and vulnerability forecasting</li>
+          <li>2. Automated security policy generation</li>
+          <li>3. Multi-agent decision orchestration with human control</li>
+          <li>4. Enterprise-grade governance, logging, and auditability</li>
         </ul>
       </section>
 
       <section>
         <h2>Design Philosophy</h2>
         <p>
-          ANTI AI Enterprise is built on the belief that autonomy without
+          ANTI-AI Shield is built on the belief that autonomy without
           accountability is dangerous. Every automated decision is traceable,
           explainable, and subject to human override.
         </p>

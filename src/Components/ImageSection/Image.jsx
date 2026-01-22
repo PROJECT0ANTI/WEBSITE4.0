@@ -76,8 +76,8 @@ const Projects = () => {
     },
     {
       imageUrl:
-        "https://cdn.pixabay.com/photo/2019/08/06/22/48/artificial-intelligence-4389372_1280.jpg",
-      title: "ANTI-AI Enterprise Product",
+        "/static/enterprise_product.jpeg",
+      title: "ANTI-AI Shield",
       description:
         "An enterprise-grade security platform built to predict threats, enforce governed AI decisions, and protect modern cloud infrastructure before attacks occur.",
       keywords: [
@@ -85,7 +85,6 @@ const Projects = () => {
         "Threat Forecasting",
         "Governed AI",
         "Human-in-the-loop",
-        "Enterprise Scale",
       ],
       platformLinks: {},
       reverse: false,
