@@ -54,7 +54,7 @@ const TEAM = [
   },
   {
     name: "Shristi Shukla",
-    role: "Senior Softwar Developer",
+    role: "Senior Software Developer",
     image: "/static/shristi_shukla.png",
     linkedin: "/",
   },
