@@ -18,9 +18,9 @@ const TEAM = [
   },
   {
     name: "Sharad Pandey",
-    role: "Business Development Manager",
-    image: "/static/sharad_pandey.png",
-    linkedin: "/",
+    role: "Director of Sales-Presales GPS",
+    image: "/static/sharad_pandey.jpeg",
+    linkedin: "https://www.linkedin.com/in/sharad-pandey-114825152",
   },
   {
     name: "Arpit Dogra",
@@ -56,7 +56,7 @@ const TEAM = [
     name: "Shristi Shukla",
     role: "Senior Software Developer",
     image: "/static/shristi_shukla.png",
-    linkedin: "/",
+    linkedin: "https://x.com/session_timeout",
   },
   {
     name: "Sanjay Thakur",

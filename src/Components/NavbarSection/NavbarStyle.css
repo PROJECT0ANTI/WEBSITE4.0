@@ -9,6 +9,11 @@
   width: 100%;
   z-index: 1000;
   background: transparent;
+  padding: 10px 0;
+}
+
+.main-nav .max-w-screen-xl {
+  min-height: 56px; /* tighter vertical rhythm */
 }
 
 /* Glass layer */
@@ -136,5 +141,145 @@ ul li {
 
   .nav-link {
     padding: 10px 0;
+  }
+}
+.nav-collaborate {
+  position: relative;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(31, 111, 43, 0.6);
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ================= COLLABORATE STAR BUTTON ================= */
+
+.nav-collaborate-btn {
+  --green-main: #1f6f2b;
+  --green-glow: rgba(46, 224, 107, 0.6);
+  --dark-bg: #020308;
+  --white: #ffffff;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--white);
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 999px;
+  outline: 2px solid transparent;
+  outline-offset: 6px;
+  transform: scale(0.82); /* 👈 key line */
+  transform-origin: center;
+}
+
+/* rotating star */
+.nav-collaborate-btn::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 100px;
+  height: 90px;
+  background: var(--green-main);
+  opacity: 0.25;
+  clip-path: polygon(
+    100% 50%, 91.48% 56.57%, 97.55% 65.45%, 87.42% 69.07%,
+    90.45% 79.39%, 79.7% 79.7%, 79.39% 90.45%, 69.07% 87.42%,
+    65.45% 97.55%, 56.57% 91.48%, 50% 100%, 43.43% 91.48%,
+    34.55% 97.55%, 30.93% 87.42%, 20.61% 90.45%, 20.3% 79.7%,
+    9.55% 79.39%, 12.58% 69.07%, 2.45% 65.45%, 8.52% 56.57%,
+    0% 50%, 8.52% 43.43%, 2.45% 34.55%, 12.58% 30.93%,
+    9.55% 20.61%, 20.3% 20.3%, 20.61% 9.55%, 30.93% 12.58%,
+    34.55% 2.45%, 43.43% 8.52%, 50% 0%, 56.57% 8.52%,
+    65.45% 2.45%, 69.07% 12.58%, 79.39% 9.55%, 79.7% 20.3%,
+    90.45% 20.61%, 87.42% 30.93%, 97.55% 34.55%, 91.48% 43.43%
+  );
+  animation: nav-star-rotate 10s linear infinite;
+  transition: opacity 0.3s ease;
+  filter: blur(0.6px);
+}
+
+.nav-collaborate-btn:hover::before {
+  opacity: 0.55;
+}
+
+/* button layers */
+.btn-outer {
+  padding: 2px;
+  border-radius: 999px;
+  background: var(--green-main);
+  transform: translate(-4px, -4px);
+  transition: all 0.2s ease;
+  box-shadow:
+    0 0 0 2px #020308,
+    0 0 0 4px var(--white);
+}
+
+.nav-collaborate-btn:hover .btn-outer {
+  transform: translate(0, 0);
+}
+
+.btn-mid {
+  border-radius: 999px;
+  background: #020308;
+}
+
+.btn-mid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  opacity: 0.12;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.8) 20%, transparent 20%),
+    radial-gradient(rgba(255,255,255,1) 20%, transparent 20%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+  animation: nav-dots 0.4s linear infinite;
+}
+
+.btn-inner {
+  position: relative;
+  padding: 10px 22px;
+  z-index: 1;
+}
+
+/* Tighten inner padding so text doesn't feel chunky */
+.nav-collaborate-btn .btn-inner {
+  padding: 0.55rem 1.05rem;
+  font-size: 0.95rem;
+}
+
+
+/* active */
+.nav-collaborate-btn:active .btn-outer {
+  transform: translateY(2px);
+}
+
+/* animations */
+@keyframes nav-star-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes nav-dots {
+  from {
+    background-position: 0 0, 4px 4px;
+  }
+  to {
+    background-position: 8px 0, 12px 4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-collaborate-btn {
+    transform: scale(0.75);
   }
 }

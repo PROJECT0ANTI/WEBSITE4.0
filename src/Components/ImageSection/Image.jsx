@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./Image.css";
+// import { Android } from "@mui/icons-material";
 
 const ImageComponent = ({
   imageUrl,
@@ -24,17 +25,19 @@ const ImageComponent = ({
         <div className="keywords">
           {keywords.map((keyword, index) => {
             const isLinked =
-              keyword === "Android" || keyword === "iOS";
+              keyword === "iOS";
 
             return (
               <span key={index} className="keyword-item">
                 {isLinked ? (
-                  <a
-                    href={platformLinks[keyword] || ""}
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    {keyword}
-                  </a>
+<a
+  href={platformLinks[keyword]}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  {keyword}
+</a>
+
                 ) : (
                   <span>{keyword}</span>
                 )}
@@ -64,12 +67,13 @@ const Projects = () => {
         "On-device AI",
         "Privacy First",
         "Real-time Analysis",
-        "Android",
+        "Download Now:",
         "iOS",
+        
       ],
       platformLinks: {
-        Android: "",
-        iOS: "",
+        iOS: "https://apps.apple.com/us/app/anti-0/id6757922031",
+        
       },
       reverse: true,
       learnMoreLink: "/products/anti-0",

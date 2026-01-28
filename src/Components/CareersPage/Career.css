@@ -1,187 +1,175 @@
-.career-page {
-  background: #020308;
-  color: #F9FAFB;
+/* ---------------- JOB LISTING ---------------- */
+.career-listing {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 6vw 140px;
 }
 
-/* ---------------- HERO ---------------- */
+.career-section-title {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* ---------------- GRID ---------------- */
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* ---------------- JOB CARD ---------------- */
+.job-card {
+  background: #ffffff;
+  color: #020308;
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.job-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.job-card p {
+  font-size: 0.95rem;
+  color: #1f2937;
+}
+
+/* ---------------- APPLY BUTTON ---------------- */
+.apply-btn {
+  margin-top: auto;
+  display: inline-block;
+  text-align: center;
+
+  background: #020308;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.apply-btn:hover {
+  background: #000000;
+  transform: translateY(-1px);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 1024px) {
+  .job-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .job-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===============================
+   HERO FIX
+================================ */
 .career-hero {
-  padding: 140px 6vw 100px;
+  padding: 160px 6vw 80px; /* push below navbar */
   text-align: center;
 }
 
 .career-hero h1 {
-  font-size: 3rem;
+  font-size: 3.2rem;
   font-weight: 700;
+  margin-bottom: 16px;
 }
 
 .career-hero p {
-  color: #CFEBDD;
-  max-width: 640px;
-  margin: 18px auto 0;
+  font-size: 1.05rem;
+  color: #cfeBDD;
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-/* ---------------- CONTENT ---------------- */
-.career-content {
+/* ===============================
+   OPEN POSITIONS SECTION
+================================ */
+.open-positions {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 6vw;
+  padding: 60px 6vw 120px;
+}
+
+.open-positions h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 50px;
+}
+
+/* ===============================
+   JOB GRID FIX
+================================ */
+.jobs-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
 }
 
-.career-info h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-.career-info ul {
-  list-style: none;
-  padding: 0;
-}
-
-.career-info li {
-  margin-bottom: 14px;
-  color: #CFEBDD;
-  position: relative;
-  padding-left: 20px;
-}
-
-.career-info li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  background: #2EE06B;
-  border-radius: 50%;
-}
-
-/* ---------------- FORM CARD ---------------- */
-.career-form-card {
-  background: radial-gradient(
-    circle at top left,
-    rgba(4, 99, 7, 0.18),
-    #020617 60%,
-    #020308 100%
-  );
-
-  border: 1px solid rgba(4, 99, 7, 0.35);
-  border-radius: 24px;
-  padding: 40px;
-
-  box-shadow:
-    0 0 0 1px rgba(4, 99, 7, 0.18),
-    0 30px 70px rgba(0, 0, 0, 0.9);
-}
-
-.career-form-card h3 {
-  font-size: 1.6rem;
-  margin-bottom: 24px;
-}
-
-/* ---------------- FORM ---------------- */
-.career-form {
+/* ===============================
+   JOB CARD TUNING
+================================ */
+.job-card {
+  background: #ffffff;
+  color: #020308;
+  border-radius: 18px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  justify-content: space-between;
+  min-height: 240px;
 }
 
-.career-form input {
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 12px 14px;
-  border: none;
-  font-size: 1rem;
+.job-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 14px;
 }
 
-/* ---------------- SELECT ---------------- */
-.career-select {
-  background: #ffffff;
-  color: #020308;
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-}
-
-.career-select:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(4, 99, 7, 0.6);
-}
-
-.career-select option {
-  background: #ffffff;
-  color: #020308;
-}
-
-/* ---------------- FILE UPLOAD ---------------- */
-.file-upload {
-  border: 1px dashed rgba(4, 99, 7, 0.55);
-  padding: 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  text-align: center;
-  color: #CFEBDD;
-  transition: border-color 0.25s ease;
-}
-
-.file-upload:hover {
-  border-color: #2EE06B;
-}
-
-.file-upload input {
-  display: none;
-}
-
-/* ---------------- BUTTON ---------------- */
-.career-form button {
-  margin-top: 10px;
-  background: #2EE06B;
-  color: #020308;
-  padding: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: none;
-  font-weight: 600;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.career-form button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 30px rgba(46, 224, 107, 0.45);
-}
-
-.career-form button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* ---------------- MESSAGE / TOAST ---------------- */
-.form-message {
-  margin-top: 14px;
-  padding: 12px 14px;
-  border-radius: 10px;
+.job-card p {
   font-size: 0.95rem;
+  margin-bottom: 8px;
 }
 
-.form-message.success {
-  background: rgba(4, 99, 7, 0.18);
-  border: 1px solid rgba(4, 99, 7, 0.6);
-  color: #CFEBDD;
+.job-card button {
+  margin-top: 18px;
+  border-radius: 10px;
 }
 
-.form-message.error {
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid #ef4444;
-  color: #fecaca;
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1000px) {
+  .jobs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* ---------------- RESPONSIVE ---------------- */
-@media (max-width: 900px) {
-  .career-content {
+@media (max-width: 600px) {
+  .jobs-grid {
     grid-template-columns: 1fr;
+  }
+
+  .career-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .open-positions h2 {
+    font-size: 2rem;
   }
 }

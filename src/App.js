@@ -9,10 +9,10 @@ import Footer from "./Components/FooterSection/Footer";
 // Pages / Background
 import ThreeScene from "./Components/Background/ThreeScene";
 import Career from "./Components/CareersPage/Career";
+import Apply from "./Components/Apply/Apply";
 import About from "./Components/AboutPage/About";
 import Contact from "./Components/ContactSection/Contact";
 import Projects from "./Components/ImageSection/Image";
-import JobListing from "./Components/Joblist/JobListing";
 import Team from "./Components/Team/Team";
 import Service from "./Components/ServicePage/Service";
 
@@ -72,8 +72,9 @@ function App() {
             <main className="app-content">
               <Routes>
                 <Route path="/services" element={<Service />} />
-                <Route path="/career" element={<JobListing />} />
+                <Route path="/career" element={<Career />} />
                 <Route path="/job" element={<Career />} />
+                <Route path="/apply/:jobId" element={<Apply />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/contact" element={<Contact />} />

@@ -58,10 +58,8 @@ const HeroSection = () => {
 
             {expanded && (
               <p className="hero-p expanded-text">
-                We help organizations build, deploy, and scale artificial intelligence 
-                without losing transparency, security, or human oversight. 
-                From AI engineering and data systems to cybersecurity and governance, 
-                our work ensures technology serves people, not the other way around.
+                Our work spans AI engineering, data systems, detection, security, and governance enabling organizations to deploy and scale artificial intelligence without losing visibility, human oversight, or operational control.
+We focus on systems that can be inspected, measured, and governed, ensuring AI serves real users, real decisions, and real consequences.
               </p>
             )}
 
