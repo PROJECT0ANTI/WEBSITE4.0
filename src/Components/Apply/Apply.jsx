@@ -63,17 +63,47 @@ export default function Apply() {
     setMessage("");
 
     try {
-      const { error } = await supabase.from("applications").insert([
-        {
-          job_id: jobId,
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          cover_letter: formData.cover_letter,
-        },
-      ]);
+      if (!formData.resume) {
+        throw new Error("Resume is required");
+      }
 
-      if (error) throw error;
+      /* 1️⃣ Upload resume */
+      const fileExt = formData.resume.name.split(".").pop();
+      const filePath = `${jobId}/${crypto.randomUUID()}.${fileExt}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("resumes")
+        .upload(filePath, formData.resume, {
+          cacheControl: "3600",
+          upsert: false,
+        });
+
+      if (uploadError) throw uploadError;
+
+      /* 2️⃣ Get public URL */
+      const { data: urlData } = supabase.storage
+        .from("resumes")
+        .getPublicUrl(filePath);
+
+      if (!urlData?.publicUrl) {
+        throw new Error("Failed to generate resume URL");
+      }
+
+      /* 3️⃣ Insert application */
+      const { error: insertError } = await supabase
+        .from("applications")
+        .insert([
+          {
+            job_id: jobId,
+            name: formData.name.trim(),
+            email: formData.email.trim(),
+            phone: formData.phone.trim(),
+            cover_letter: formData.cover_letter.trim(),
+            resume_url: urlData.publicUrl,
+          },
+        ]);
+
+      if (insertError) throw insertError;
 
       setMessage("Application submitted successfully.");
       setFormData({
@@ -109,8 +139,8 @@ export default function Apply() {
           <h3>Why work with us?</h3>
           <ul>
             <li>Build AI systems that are accountable and human-governed</li>
-            <li>Work on real security, detection, and AI safety problems</li>
-            <li>Ownership over your work, not ticket factories</li>
+            <li>Work on real security and AI safety problems</li>
+            <li>High ownership, low bureaucracy</li>
             <li>Remote-first, outcome-driven culture</li>
             <li>Engineering, research, and ethics move together</li>
           </ul>
