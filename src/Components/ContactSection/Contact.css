@@ -302,3 +302,13 @@
     font-size: 1.05rem;
   }
 }
+
+.contact-form input,
+.contact-form textarea {
+  color: #020308;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #9ca3af;
+}
