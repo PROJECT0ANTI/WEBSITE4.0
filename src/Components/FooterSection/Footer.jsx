@@ -44,16 +44,16 @@ const Footer = () => {
       {/* 3. Follow Us */}
       <div className="footer-col">
         <h4>FOLLOW US</h4>
-        <a href="https://www.instagram.com/antiai.ltd/" target="_blank" rel="noreferrer">
+        <a href="https://www.instagram.com/antiaishield?igsh=MTY2aGkxdjRiOWhvMA==" target="_blank" rel="noreferrer">
           Instagram
         </a>
-        <a href="https://x.com/" target="_blank" rel="noreferrer">
-          X
+        <a href="https://www.threads.com/@antiaishield?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noreferrer">
+          Threads
         </a>
-        <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
+        <a href="https://youtube.com/@anti.ai_15?si=trudg-TXKz21JPv-" target="_blank" rel="noreferrer">
           YouTube
         </a>
-        <a href="https://www.linkedin.com/company/anti-ai" target="_blank" rel="noreferrer">
+        <a href="https://www.linkedin.com/company/anti-ai/" target="_blank" rel="noreferrer">
           LinkedIn
         </a>
       </div>
@@ -63,7 +63,7 @@ const Footer = () => {
         <h4>WRITE TO US</h4>
         <a href="mailto:hello@antiai.ltd">hello@antiai.ltd</a>
         <a href="mailto:support@antiai.ltd">support@antiai.ltd</a>
-        <a href="mailto:hr@antiai.ltd">hr@antiai.ltd</a>
+        <a href="mailto:antiai.hr@gmail.com">antiai.hr@gmail.com</a>
       </div>
 
       {/* 5. Call us at */}
