@@ -305,7 +305,7 @@ const Contact = () => {
               <span>Em.3</span>
               <p>
                 Human Resource<br />
-                <a href="mailto:hr@antiai.ltd">antiai.hr@gmail.com</a>
+                <a href="mailto:antiai.hr@gmail.com">antiai.hr@gmail.com</a>
               </p>
             </div>
           </div>
