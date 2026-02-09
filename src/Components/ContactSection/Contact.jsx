@@ -305,7 +305,7 @@ const Contact = () => {
               <span>Em.3</span>
               <p>
                 Human Resource<br />
-                <a href="mailto:hr@antiai.ltd">hr@antiai.ltd</a>
+                <a href="mailto:hr@antiai.ltd">antiai.hr@gmail.com</a>
               </p>
             </div>
           </div>
@@ -313,10 +313,10 @@ const Contact = () => {
           <div>
             <p className="sidebar-label">SOCIAL</p>
             <ul className="social-list">
-              <li data-index="01"><a href="/">Instagram</a></li>
-              <li data-index="02"><a href="/">X</a></li>
-              <li data-index="03"><a href="/">YouTube</a></li>
-              <li data-index="04"><a href="/">LinkedIn</a></li>
+              <li data-index="01"><a href="https://www.instagram.com/antiaishield?igsh=MTY2aGkxdjRiOWhvMA==">Instagram</a></li>
+              <li data-index="02"><a href="https://youtube.com/@anti.ai_15?si=trudg-TXKz21JPv-">YouTube</a></li>
+              <li data-index="03"><a href="https://www.linkedin.com/company/anti-ai/">LinkedIn</a></li>
+              <li data-index="04"><a href="https://www.threads.com/@antiaishield?igshid=NTc4MTIwNjQ2YQ==">Threads</a></li>
             </ul>
           </div>
         </aside>
