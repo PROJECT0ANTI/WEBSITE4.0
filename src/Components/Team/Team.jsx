@@ -42,7 +42,7 @@ const TEAM = [
   },
   {
     name: "Tanmay Saboo",
-    role: "Chief of Staff",
+    role: "Chief of Staff - Founders Office",
     image: "/static/tanmay_saboo.jpeg",
     linkedin: "https://www.linkedin.com/in/tanmay-saboo",
   },
@@ -58,12 +58,12 @@ const TEAM = [
     image: "/static/shristi_shukla.png",
     linkedin: "https://x.com/session_timeout",
   },
-  {
-    name: "Sanjay Thakur",
-    role: "Business Development Executive",
-    image: "/static/sanjay.png",
-    linkedin: "https://www.linkedin.com/in/sanjaysingh-thakur",
-  },
+  // {
+  //   name: "Sanjay Thakur",
+  //   role: "Business Development Executive",
+  //   image: "/static/sanjay.png",
+  //   linkedin: "https://www.linkedin.com/in/sanjaysingh-thakur",
+  // },
   {
     name: "Shishpal Singh",
     role: "Business Development Executive",
