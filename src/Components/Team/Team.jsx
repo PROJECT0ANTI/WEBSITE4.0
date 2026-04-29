@@ -40,18 +40,18 @@ const TEAM = [
     image: "/static/vishal_purohit.PNG",
     linkedin: "https://www.linkedin.com/in/vishal-purohit-35338b218",
   },
-  {
-    name: "Tanmay Saboo",
-    role: "Chief of Staff - Founders Office",
-    image: "/static/tanmay_saboo.jpeg",
-    linkedin: "https://www.linkedin.com/in/tanmay-saboo",
-  },
-  {
-    name: "Parth Mehta",
-    role: "AI/ML Developer Engineer",
-    image: "/static/parth_mehta.png",
-    linkedin: "https://www.linkedin.com/in/parth-mehta-abc1999",
-  },
+  // {
+  //   name: "Tanmay Saboo",
+  //   role: "Chief of Staff - Founders Office",
+  //   image: "/static/tanmay_saboo.jpeg",
+  //   linkedin: "https://www.linkedin.com/in/tanmay-saboo",
+  // },
+  // {
+  //   name: "Parth Mehta",
+  //   role: "AI/ML Developer Engineer",
+  //   image: "/static/parth_mehta.png",
+  //   linkedin: "https://www.linkedin.com/in/parth-mehta-abc1999",
+  // },
   {
     name: "Shristi Shukla",
     role: "Senior Software Developer",
@@ -64,12 +64,12 @@ const TEAM = [
   //   image: "/static/sanjay.png",
   //   linkedin: "https://www.linkedin.com/in/sanjaysingh-thakur",
   // },
-  {
-    name: "Shishpal Singh",
-    role: "Business Development Executive",
-    image: "/static/shispal.png",
-    linkedin: "https://www.linkedin.com/in/shishpal-singh-a084b3109",
-  },
+  // {
+  //   name: "Shishpal Singh",
+  //   role: "Business Development Executive",
+  //   image: "/static/shispal.png",
+  //   linkedin: "https://www.linkedin.com/in/shishpal-singh-a084b3109",
+  // },
 ];
 
 /* MAGNET HOOK */
