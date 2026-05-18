@@ -164,11 +164,11 @@ const MyNavbar = () => {
         >
           <ul className="list_style flex flex-col font-normal mt-4 list-none rounded-lg md:space-x-8 md:flex-row md:mt-0 md:border-0">
             {[
-              { path: "/home", label: "The Prologue" },
-              { path: "/services", label: "Capabilities" },
+              { path: "/home", label: "Origin" },
+              { path: "/services", label: "What We Build" },
               { path: "/about", label: "Our Story" },
               { path: "/team", label: "The Makers" },
-              { path: "/career", label: "New Chapters" },
+              { path: "/career", label: "Join the Mission" },
             ].map((item) => (
               <li key={item.path}>
                 <a
