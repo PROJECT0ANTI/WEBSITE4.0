@@ -84,43 +84,47 @@
 
 
 import React, { useEffect, useRef } from "react";
-import NET from "vanta/dist/vanta.net.min";
+// Removed npm Vanta import to prevent bundle-time THREE crashes
 
 import Hero from "../HeroSection/Hero";
 import Image from "../ImageSection/Image";
-import Container from "../ChatbotComponents/Container";
 
 const ThreeScene = () => {
   const vantaRef = useRef(null);
   const footerDimRef = useRef(null);
 
   useEffect(() => {
-    const effect = NET({
-      el: vantaRef.current,
-
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: true,
-
-      minHeight: 200,
-      minWidth: 200,
-      scale: 1,
-      scaleMobile: 1,
-
-      color: 0x046307,
-      backgroundColor: 0x000000,
-
-      maxDistance: 30,
-      spacing: 16,
-
-      points: 10.0,
-      showDots: true,
-
-      speed: 1,
-    });
+    let effect;
+    if (typeof window !== "undefined" && window.THREE && window.VANTA && window.VANTA.NET) {
+      try {
+        effect = window.VANTA.NET({
+          el: vantaRef.current,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: true,
+          minHeight: 200,
+          minWidth: 200,
+          scale: 1,
+          scaleMobile: 1,
+          color: 0x046307,
+          backgroundColor: 0x000000,
+          maxDistance: 30,
+          spacing: 16,
+          points: 10.0,
+          showDots: true,
+          speed: 1,
+        });
+      } catch (err) {
+        console.error("Vanta initialization failed:", err);
+      }
+    } else {
+      console.warn("Vanta.js CDN scripts are not loaded yet or are missing.");
+    }
 
     return () => {
-      if (effect) effect.destroy();
+      if (effect && typeof effect.destroy === "function") {
+        effect.destroy();
+      }
     };
   }, []);
 
@@ -197,7 +201,6 @@ const ThreeScene = () => {
         </h1>
 
         <Image />
-        <Container />
       </main>
     </div>
   );

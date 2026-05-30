@@ -5,17 +5,27 @@ const Footer = () => {
   // ✅ JS must live here, NOT inside JSX
   const hindiText = "अन्ते सत्यं विजयते।";
 
-  const segments = new Intl.Segmenter("hi", {
-    granularity: "grapheme",
-  }).segment(hindiText);
+  let segmentLetters = [];
+  try {
+    if (typeof Intl !== "undefined" && Intl.Segmenter) {
+      const segments = new Intl.Segmenter("hi", {
+        granularity: "grapheme",
+      }).segment(hindiText);
+      segmentLetters = [...segments].map((s) => s.segment);
+    } else {
+      segmentLetters = [...hindiText];
+    }
+  } catch (err) {
+    segmentLetters = [...hindiText];
+  }
 
   return (
     <footer className="footer-root footer-grid-7">
       {/* Background Sanskrit */}
       <div className="footer-bg-text">
-        {[...segments].map((segment, i) => (
+        {segmentLetters.map((letter, i) => (
           <span key={i} className="sanskrit-letter">
-            {segment.segment}
+            {letter}
           </span>
         ))}
       </div>
